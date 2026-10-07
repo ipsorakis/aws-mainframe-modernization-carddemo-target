@@ -80,12 +80,12 @@ Classes marked *(planned)* do not exist yet; the owning ticket creates them in t
 | `1000-TCATBALF-GET-NEXT` | Sequential read of TCATBALF | `application.port.TransactionCategoryBalanceReader` → `adapter.persistence` | DM-22 (port) |
 | `1050-UPDATE-ACCOUNT` | `ACCT-CURR-BAL += WS-TOTAL-INT`; reset cycle credit/debit; REWRITE | `domain.account` *(planned `AccountInterestPosting`)* + `AccountRepository.update` | DM-7 |
 | `1100-GET-ACCT-DATA` | READ ACCTFILE by `ACCT-ID` | `application.port.AccountRepository.findById` | DM-7 |
-| `1110-GET-XREF-DATA` | READ XREFFILE by alternate key `XREF-ACCT-ID` (card number for the interest transaction) | `application.port.CardXrefRepository.findByAccountId` | DM-8 |
+| `1110-GET-XREF-DATA` | READ XREFFILE by alternate key `XREF-ACCT-ID` (card number for the interest transaction) | `application.InterestTransactionEmitter.cardXrefFor` + `application.port.CardXrefRepository.findByAccountId` | DM-8 |
 | `1200-GET-INTEREST-RATE` | READ DISCGRP by (`ACCT-GROUP-ID`, type, category) | `domain.interest` *(planned `InterestRateResolver`)* + `DisclosureGroupRepository.findByKey` | DM-6 |
 | `1200-A-GET-DEFAULT-INT-RATE` | On status `23`, retry with group `DEFAULT` | `domain.interest` *(planned `InterestRateResolver`)* | DM-6 |
 | `1300-COMPUTE-INTEREST` | `WS-MONTHLY-INT = (TRAN-CAT-BAL * DIS-INT-RATE) / 1200`; add to `WS-TOTAL-INT` | `domain.interest` *(planned `InterestCalculator`)* | DM-6 |
-| `1300-B-WRITE-TX` | Build type `01` / cat `05` / source `System` transaction, ID = parm date + sequence, description `Int. for a/c <acct>`; WRITE | `domain.transaction` *(planned `InterestTransactionFactory`)* + `TransactionWriter.write` | DM-8 |
-| `Z-GET-DB2-FORMAT-TIMESTAMP` | DB2-format timestamp for `TRAN-ORIG-TS` / `TRAN-PROC-TS` | `domain.transaction` (with an injected `java.time.Clock`) | DM-8 |
+| `1300-B-WRITE-TX` | Build type `01` / cat `05` / source `System` transaction, ID = parm date + sequence, description `Int. for a/c <acct>`; WRITE | `domain.transaction.InterestTransactionFactory` (ID from `TransactionIdSequence`) + `application.InterestTransactionEmitter.emit` → `TransactionWriter.write` | DM-8 |
+| `Z-GET-DB2-FORMAT-TIMESTAMP` | DB2-format timestamp for `TRAN-ORIG-TS` / `TRAN-PROC-TS` | `domain.transaction.Db2Timestamp` (with an injected `java.time.Clock`) | DM-8 |
 | `1400-COMPUTE-FEES` | Empty stub in COBOL ("To be implemented") | Decision pending: `domain.interest` or explicitly scoped out | DM-9 |
 
 Business logic is intentionally **not** implemented in this scaffold: `InterestCalculationJob.run` throws `UnsupportedOperationException` until DM-6/DM-7/DM-8 land.
