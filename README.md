@@ -78,8 +78,8 @@ Classes marked *(planned)* do not exist yet; the owning ticket creates them in t
 |---|---|---|---|
 | PROCEDURE DIVISION main loop | Read category balances in key order, break on account change, drive the paragraphs below | `application.InterestCalculationJob` | DM-22 (skeleton); filled in by DM-6/DM-7/DM-8 |
 | `1000-TCATBALF-GET-NEXT` | Sequential read of TCATBALF | `application.port.TransactionCategoryBalanceReader` → `adapter.persistence` | DM-22 (port) |
-| `1050-UPDATE-ACCOUNT` | `ACCT-CURR-BAL += WS-TOTAL-INT`; reset cycle credit/debit; REWRITE | `domain.account` *(planned `AccountInterestPosting`)* + `AccountRepository.update` | DM-7 |
-| `1100-GET-ACCT-DATA` | READ ACCTFILE by `ACCT-ID` | `application.port.AccountRepository.findById` | DM-7 |
+| `1050-UPDATE-ACCOUNT` | `ACCT-CURR-BAL += WS-TOTAL-INT`; reset cycle credit/debit; REWRITE | `domain.account.AccountInterestPosting` (pure; throws `AccountBalanceOverflowException` instead of COBOL's silent high-order truncation) + `application.account.AccountInterestUpdater.postInterest` → `AccountRepository.update` (`AccountRewriteException` on failure; `adapter.persistence.InMemoryAccountRepository` for tests) | DM-7 |
+| `1100-GET-ACCT-DATA` | READ ACCTFILE by `ACCT-ID` | `application.account.AccountInterestUpdater.getAccount` → `AccountRepository.findById` (`AccountNotFoundException` on INVALID KEY) | DM-7 |
 | `1110-GET-XREF-DATA` | READ XREFFILE by alternate key `XREF-ACCT-ID` (card number for the interest transaction) | `application.port.CardXrefRepository.findByAccountId` | DM-8 |
 | `1200-GET-INTEREST-RATE` | READ DISCGRP by (`ACCT-GROUP-ID`, type, category) | `domain.interest` *(planned `InterestRateResolver`)* + `DisclosureGroupRepository.findByKey` | DM-6 |
 | `1200-A-GET-DEFAULT-INT-RATE` | On status `23`, retry with group `DEFAULT` | `domain.interest` *(planned `InterestRateResolver`)* | DM-6 |
