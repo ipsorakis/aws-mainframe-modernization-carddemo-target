@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: carddemo-interest-service
+  main:
+    banner-mode: off
