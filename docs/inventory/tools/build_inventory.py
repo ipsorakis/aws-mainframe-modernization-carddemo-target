@@ -384,7 +384,7 @@ def short_dsn(dsn):
     return base_dsn(dsn).replace("AWS.M2.CARDDEMO.", "")
 
 
-IDCAMS_DEFINE = re.compile(r"DEFINE\s+(CLUSTER|ALTERNATEINDEX|AIX|PATH|GDG)\s*\(\s*NAME\s*\(\s*([A-Z0-9.#@$]+)\s*\)")
+IDCAMS_DEFINE = re.compile(r"DEFINE\s+(CLUSTER|ALTERNATEINDEX|AIX|PATH|GENERATIONDATAGROUP|GDG)\s*\(\s*NAME\s*\(\s*([A-Z0-9.#@$]+)\s*\)")
 
 
 def idcams(data_lines):
@@ -396,12 +396,12 @@ def idcams(data_lines):
         attrs = []
         for pat in (r"KEYS\s*\(\s*\d+\s+\d+\s*\)", r"RECORDSIZE\s*\(\s*\d+\s+\d+\s*\)",
                     r"\b(INDEXED|NONINDEXED|NUMBERED|LINEAR)\b", r"RELATE\s*\(\s*[A-Z0-9.#@$]+\s*\)",
-                    r"PATHENTRY\s*\(\s*[A-Z0-9.#@$]+\s*\)", r"LIMIT\s*\(\s*\d+\s*\)", r"\bUPGRADE\b",
+                    r"PATHENTRY\s*\(\s*[A-Z0-9.#@$]+\s*\)", r"LIMIT\s*\(\s*\d+\s*\)", r"\b(SCRATCH|NOSCRATCH)\b", r"\bUPGRADE\b",
                     r"\b(NONUNIQUEKEY|UNIQUEKEY)\b"):
             a = re.search(pat, block)
             if a:
                 attrs.append(re.sub(r"\s+", " ", a.group(0)))
-        kind = "AIX" if m.group(1) == "ALTERNATEINDEX" else m.group(1)
+        kind = {"ALTERNATEINDEX": "AIX", "GENERATIONDATAGROUP": "GDG"}.get(m.group(1), m.group(1))
         out.append(("IDCAMS DEFINE " + kind, m.group(2), " ".join(attrs)))
     for m in re.finditer(r"\bDELETE\s+([A-Z0-9.#@$]+)", text):
         out.append(("IDCAMS DELETE", m.group(1), ""))
