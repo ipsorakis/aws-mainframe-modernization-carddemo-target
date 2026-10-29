@@ -73,7 +73,7 @@ def list_files(src):
     try:
         out = subprocess.run(["git", "-C", src, "ls-files", "-z", "--"] + folders,
                              check=True, capture_output=True).stdout.decode()
-        files = [p for p in out.split("\0") if p and os.path.isfile(os.path.join(src, p))]
+        files = [p for p in out.split("\0") if p]
     except (OSError, subprocess.CalledProcessError):
         files = []
         for folder in folders:
@@ -947,6 +947,8 @@ def check_coverage(src, out_dir):
     expected = set(list_files(src))
     with open(os.path.join(out_dir, "inventory.csv"), encoding="utf-8") as fh:
         paths = [r["path"] for r in csv.DictReader(fh)]
+    for p in missing_on_disk(src, expected):
+        print("COVERAGE FAIL: tracked by git but missing on disk: %s" % p, file=sys.stderr)
     dupes = sorted(p for p, n in collections.Counter(paths).items() if n > 1)
     missing = sorted(expected - set(paths))
     extra = sorted(set(paths) - expected)
@@ -956,7 +958,11 @@ def check_coverage(src, out_dir):
     by_folder = collections.Counter(folder_of(p)[0] for p in expected)
     print("coverage: %d/%d files inventoried (%s)" % (len(expected) - len(missing), len(expected),
           ", ".join("%s=%d" % (f, by_folder[f]) for f, _ in SCANNED_FOLDERS)))
-    return not (missing or extra or dupes)
+    return not (missing or extra or dupes or missing_on_disk(src, expected))
+
+
+def missing_on_disk(src, paths):
+    return sorted(p for p in paths if not os.path.isfile(os.path.join(src, p)))
 
 
 def md_cell(items, limit=None):
@@ -1218,6 +1224,11 @@ def main(argv=None):
         ap.error("%s does not look like the CardDemo source repo (no app/ folder)" % args.source)
     if args.check:
         return 0 if check_coverage(args.source, args.out) else 1
+    gone = missing_on_disk(args.source, list_files(args.source))
+    if gone:
+        for p in gone:
+            print("ERROR: tracked by git but missing on disk: %s" % p, file=sys.stderr)
+        return 1
     b = Builder(args.source)
     b.build()
     write_csv(os.path.join(args.out, "inventory.csv"), INVENTORY_COLUMNS, b.rows)
