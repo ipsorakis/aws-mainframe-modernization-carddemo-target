@@ -69,6 +69,15 @@ SYSTEM_DDS = {"STEPLIB", "JOBLIB", "SYSOUT", "SYSPRINT", "SYSUDUMP", "CEEDUMP", 
 
 # --------------------------------------------------------------------------- files
 def list_files(src):
+    """Return the sorted repo-relative paths of every file to inventory.
+
+    Lists the files git tracks under SCANNED_FOLDERS in the source checkout `src`
+    (`git ls-files`, so untracked build output is ignored). Paths use forward
+    slashes, e.g. "app/cbl/COSGN00C.cbl". Tracked files deleted from the working
+    tree are still returned; main() and check_coverage() report them as missing.
+    If `src` is not a git checkout (or git is unavailable), falls back to walking
+    the folders on disk.
+    """
     folders = [f for f, _ in SCANNED_FOLDERS]
     try:
         out = subprocess.run(["git", "-C", src, "ls-files", "-z", "--"] + folders,
