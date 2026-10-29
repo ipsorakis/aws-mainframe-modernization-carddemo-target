@@ -1,0 +1,1479 @@
+{
+  "source_commit": "59cc6c2fd7ebd7ef7925cad552a01a4b8b6e4d5e",
+  "copybooks": [
+    {
+      "copybook": "CUSTREC",
+      "source_file": "app/cpy/CUSTREC.cpy",
+      "in_ticket": true,
+      "header_comment_reclen": 500,
+      "records": [
+        {
+          "name": "CUSTOMER-RECORD",
+          "length": 500,
+          "datasets": [
+            {
+              "dsn": "AWS.M2.CARDDEMO.CUSTDATA.VSAM.KSDS",
+              "organization": "KSDS",
+              "match": true,
+              "recordsize": [
+                {
+                  "avg": 500,
+                  "max": 500
+                }
+              ],
+              "keys": [
+                {
+                  "length": 9,
+                  "offset": 0
+                }
+              ],
+              "key_fields": [
+                [
+                  "CUST-ID"
+                ]
+              ],
+              "length_match": [
+                true
+              ],
+              "key_match": [
+                true
+              ],
+              "lrecl": null,
+              "aix": [],
+              "sample_data": {
+                "file": "app/data/EBCDIC/AWS.M2.CARDDEMO.CUSTDATA.PS",
+                "bytes": 25000,
+                "records": 50,
+                "whole_records": true
+              },
+              "idcams_at": [
+                "app/jcl/CUSTFILE.jcl:46"
+              ]
+            }
+          ]
+        }
+      ],
+      "copied_by": [
+        "CBSTM03A"
+      ]
+    },
+    {
+      "copybook": "CVCUS01Y",
+      "source_file": "app/cpy/CVCUS01Y.cpy",
+      "in_ticket": true,
+      "header_comment_reclen": 500,
+      "records": [
+        {
+          "name": "CUSTOMER-RECORD",
+          "length": 500,
+          "datasets": [
+            {
+              "dsn": "AWS.M2.CARDDEMO.CUSTDATA.VSAM.KSDS",
+              "organization": "KSDS",
+              "match": true,
+              "recordsize": [
+                {
+                  "avg": 500,
+                  "max": 500
+                }
+              ],
+              "keys": [
+                {
+                  "length": 9,
+                  "offset": 0
+                }
+              ],
+              "key_fields": [
+                [
+                  "CUST-ID"
+                ]
+              ],
+              "length_match": [
+                true
+              ],
+              "key_match": [
+                true
+              ],
+              "lrecl": null,
+              "aix": [],
+              "sample_data": {
+                "file": "app/data/EBCDIC/AWS.M2.CARDDEMO.CUSTDATA.PS",
+                "bytes": 25000,
+                "records": 50,
+                "whole_records": true
+              },
+              "idcams_at": [
+                "app/jcl/CUSTFILE.jcl:46"
+              ]
+            }
+          ]
+        }
+      ],
+      "copied_by": [
+        "CBCUS01C",
+        "CBEXPORT",
+        "CBIMPORT",
+        "CBTRN01C",
+        "COACTUPC",
+        "COACTVWC",
+        "COCRDSLC",
+        "COCRDUPC"
+      ]
+    },
+    {
+      "copybook": "CVACT01Y",
+      "source_file": "app/cpy/CVACT01Y.cpy",
+      "in_ticket": true,
+      "header_comment_reclen": 300,
+      "records": [
+        {
+          "name": "ACCOUNT-RECORD",
+          "length": 300,
+          "datasets": [
+            {
+              "dsn": "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS",
+              "organization": "KSDS",
+              "match": true,
+              "recordsize": [
+                {
+                  "avg": 300,
+                  "max": 300
+                }
+              ],
+              "keys": [
+                {
+                  "length": 11,
+                  "offset": 0
+                }
+              ],
+              "key_fields": [
+                [
+                  "ACCT-ID"
+                ]
+              ],
+              "length_match": [
+                true
+              ],
+              "key_match": [
+                true
+              ],
+              "lrecl": null,
+              "aix": [],
+              "sample_data": {
+                "file": "app/data/EBCDIC/AWS.M2.CARDDEMO.ACCTDATA.PS",
+                "bytes": 15000,
+                "records": 50,
+                "whole_records": true
+              },
+              "idcams_at": [
+                "app/jcl/ACCTFILE.jcl:36"
+              ]
+            }
+          ]
+        }
+      ],
+      "copied_by": [
+        "CBACT01C",
+        "CBACT04C",
+        "CBEXPORT",
+        "CBIMPORT",
+        "CBSTM03A",
+        "CBTRN01C",
+        "CBTRN02C",
+        "COACTUPC",
+        "COACTVWC",
+        "COBIL00C",
+        "COTRN02C"
+      ]
+    },
+    {
+      "copybook": "CVACT02Y",
+      "source_file": "app/cpy/CVACT02Y.cpy",
+      "in_ticket": true,
+      "header_comment_reclen": 150,
+      "records": [
+        {
+          "name": "CARD-RECORD",
+          "length": 150,
+          "datasets": [
+            {
+              "dsn": "AWS.M2.CARDDEMO.CARDDATA.VSAM.KSDS",
+              "organization": "KSDS",
+              "match": true,
+              "recordsize": [
+                {
+                  "avg": 150,
+                  "max": 150
+                }
+              ],
+              "keys": [
+                {
+                  "length": 16,
+                  "offset": 0
+                }
+              ],
+              "key_fields": [
+                [
+                  "CARD-NUM"
+                ]
+              ],
+              "length_match": [
+                true
+              ],
+              "key_match": [
+                true
+              ],
+              "lrecl": null,
+              "aix": [
+                [
+                  {
+                    "length": 11,
+                    "offset": 16
+                  },
+                  [
+                    "CARD-ACCT-ID"
+                  ],
+                  true
+                ]
+              ],
+              "sample_data": {
+                "file": "app/data/EBCDIC/AWS.M2.CARDDEMO.CARDDATA.PS",
+                "bytes": 7500,
+                "records": 50,
+                "whole_records": true
+              },
+              "idcams_at": [
+                "app/jcl/CARDFILE.jcl:50"
+              ]
+            }
+          ]
+        }
+      ],
+      "copied_by": [
+        "CBACT02C",
+        "CBEXPORT",
+        "CBIMPORT",
+        "CBTRN01C",
+        "COACTVWC",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC"
+      ]
+    },
+    {
+      "copybook": "CVACT03Y",
+      "source_file": "app/cpy/CVACT03Y.cpy",
+      "in_ticket": true,
+      "header_comment_reclen": 50,
+      "records": [
+        {
+          "name": "CARD-XREF-RECORD",
+          "length": 50,
+          "datasets": [
+            {
+              "dsn": "AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS",
+              "organization": "KSDS",
+              "match": true,
+              "recordsize": [
+                {
+                  "avg": 50,
+                  "max": 50
+                }
+              ],
+              "keys": [
+                {
+                  "length": 16,
+                  "offset": 0
+                }
+              ],
+              "key_fields": [
+                [
+                  "XREF-CARD-NUM"
+                ]
+              ],
+              "length_match": [
+                true
+              ],
+              "key_match": [
+                true
+              ],
+              "lrecl": null,
+              "aix": [
+                [
+                  {
+                    "length": 11,
+                    "offset": 25
+                  },
+                  [
+                    "XREF-ACCT-ID"
+                  ],
+                  true
+                ]
+              ],
+              "sample_data": {
+                "file": "app/data/EBCDIC/AWS.M2.CARDDEMO.CARDXREF.PS",
+                "bytes": 2500,
+                "records": 50,
+                "whole_records": true
+              },
+              "idcams_at": [
+                "app/jcl/XREFFILE.jcl:39"
+              ]
+            }
+          ]
+        }
+      ],
+      "copied_by": [
+        "CBACT03C",
+        "CBACT04C",
+        "CBEXPORT",
+        "CBIMPORT",
+        "CBSTM03A",
+        "CBTRN01C",
+        "CBTRN02C",
+        "CBTRN03C",
+        "COACTUPC",
+        "COACTVWC",
+        "COBIL00C",
+        "COTRN02C"
+      ]
+    },
+    {
+      "copybook": "CVCRD01Y",
+      "source_file": "app/cpy/CVCRD01Y.cpy",
+      "in_ticket": true,
+      "header_comment_reclen": null,
+      "records": [
+        {
+          "name": "CC-WORK-AREAS",
+          "length": 213,
+          "datasets": []
+        }
+      ],
+      "copied_by": [
+        "COACTUPC",
+        "COACTVWC",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC"
+      ]
+    },
+    {
+      "copybook": "CVTRA01Y",
+      "source_file": "app/cpy/CVTRA01Y.cpy",
+      "in_ticket": true,
+      "header_comment_reclen": 50,
+      "records": [
+        {
+          "name": "TRAN-CAT-BAL-RECORD",
+          "length": 50,
+          "datasets": [
+            {
+              "dsn": "AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS",
+              "organization": "KSDS",
+              "match": true,
+              "recordsize": [
+                {
+                  "avg": 50,
+                  "max": 50
+                }
+              ],
+              "keys": [
+                {
+                  "length": 17,
+                  "offset": 0
+                }
+              ],
+              "key_fields": [
+                [
+                  "TRAN-CAT-KEY"
+                ]
+              ],
+              "length_match": [
+                true
+              ],
+              "key_match": [
+                true
+              ],
+              "lrecl": null,
+              "aix": [],
+              "sample_data": {
+                "file": "app/data/EBCDIC/AWS.M2.CARDDEMO.TCATBALF.PS",
+                "bytes": 2500,
+                "records": 50,
+                "whole_records": true
+              },
+              "idcams_at": [
+                "app/jcl/TCATBALF.jcl:36"
+              ]
+            }
+          ]
+        }
+      ],
+      "copied_by": [
+        "CBACT04C",
+        "CBTRN02C"
+      ]
+    },
+    {
+      "copybook": "CVTRA02Y",
+      "source_file": "app/cpy/CVTRA02Y.cpy",
+      "in_ticket": true,
+      "header_comment_reclen": 50,
+      "records": [
+        {
+          "name": "DIS-GROUP-RECORD",
+          "length": 50,
+          "datasets": [
+            {
+              "dsn": "AWS.M2.CARDDEMO.DISCGRP.VSAM.KSDS",
+              "organization": "KSDS",
+              "match": true,
+              "recordsize": [
+                {
+                  "avg": 50,
+                  "max": 50
+                }
+              ],
+              "keys": [
+                {
+                  "length": 16,
+                  "offset": 0
+                }
+              ],
+              "key_fields": [
+                [
+                  "DIS-GROUP-KEY"
+                ]
+              ],
+              "length_match": [
+                true
+              ],
+              "key_match": [
+                true
+              ],
+              "lrecl": null,
+              "aix": [],
+              "sample_data": {
+                "file": "app/data/EBCDIC/AWS.M2.CARDDEMO.DISCGRP.PS",
+                "bytes": 2550,
+                "records": 51,
+                "whole_records": true
+              },
+              "idcams_at": [
+                "app/jcl/DISCGRP.jcl:36"
+              ]
+            }
+          ]
+        }
+      ],
+      "copied_by": [
+        "CBACT04C"
+      ]
+    },
+    {
+      "copybook": "CVTRA03Y",
+      "source_file": "app/cpy/CVTRA03Y.cpy",
+      "in_ticket": true,
+      "header_comment_reclen": 60,
+      "records": [
+        {
+          "name": "TRAN-TYPE-RECORD",
+          "length": 60,
+          "datasets": [
+            {
+              "dsn": "AWS.M2.CARDDEMO.TRANTYPE.VSAM.KSDS",
+              "organization": "KSDS",
+              "match": true,
+              "recordsize": [
+                {
+                  "avg": 60,
+                  "max": 60
+                }
+              ],
+              "keys": [
+                {
+                  "length": 2,
+                  "offset": 0
+                }
+              ],
+              "key_fields": [
+                [
+                  "TRAN-TYPE"
+                ]
+              ],
+              "length_match": [
+                true
+              ],
+              "key_match": [
+                true
+              ],
+              "lrecl": null,
+              "aix": [],
+              "sample_data": {
+                "file": "app/data/EBCDIC/AWS.M2.CARDDEMO.TRANTYPE.PS",
+                "bytes": 420,
+                "records": 7,
+                "whole_records": true
+              },
+              "idcams_at": [
+                "app/jcl/TRANTYPE.jcl:36"
+              ]
+            }
+          ]
+        }
+      ],
+      "copied_by": [
+        "CBTRN03C"
+      ]
+    },
+    {
+      "copybook": "CVTRA04Y",
+      "source_file": "app/cpy/CVTRA04Y.cpy",
+      "in_ticket": true,
+      "header_comment_reclen": 60,
+      "records": [
+        {
+          "name": "TRAN-CAT-RECORD",
+          "length": 60,
+          "datasets": [
+            {
+              "dsn": "AWS.M2.CARDDEMO.TRANCATG.VSAM.KSDS",
+              "organization": "KSDS",
+              "match": true,
+              "recordsize": [
+                {
+                  "avg": 60,
+                  "max": 60
+                }
+              ],
+              "keys": [
+                {
+                  "length": 6,
+                  "offset": 0
+                }
+              ],
+              "key_fields": [
+                [
+                  "TRAN-CAT-KEY"
+                ]
+              ],
+              "length_match": [
+                true
+              ],
+              "key_match": [
+                true
+              ],
+              "lrecl": null,
+              "aix": [],
+              "sample_data": {
+                "file": "app/data/EBCDIC/AWS.M2.CARDDEMO.TRANCATG.PS",
+                "bytes": 1080,
+                "records": 18,
+                "whole_records": true
+              },
+              "idcams_at": [
+                "app/jcl/TRANCATG.jcl:36"
+              ]
+            }
+          ]
+        }
+      ],
+      "copied_by": [
+        "CBTRN03C"
+      ]
+    },
+    {
+      "copybook": "CVTRA05Y",
+      "source_file": "app/cpy/CVTRA05Y.cpy",
+      "in_ticket": true,
+      "header_comment_reclen": 350,
+      "records": [
+        {
+          "name": "TRAN-RECORD",
+          "length": 350,
+          "datasets": [
+            {
+              "dsn": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+              "organization": "KSDS",
+              "match": true,
+              "recordsize": [
+                {
+                  "avg": 350,
+                  "max": 350
+                },
+                {
+                  "avg": 350,
+                  "max": 350
+                }
+              ],
+              "keys": [
+                {
+                  "length": 16,
+                  "offset": 0
+                },
+                {
+                  "length": 16,
+                  "offset": 0
+                }
+              ],
+              "key_fields": [
+                [
+                  "TRAN-ID"
+                ],
+                [
+                  "TRAN-ID"
+                ]
+              ],
+              "length_match": [
+                true,
+                true
+              ],
+              "key_match": [
+                true,
+                true
+              ],
+              "lrecl": null,
+              "aix": [
+                [
+                  {
+                    "length": 26,
+                    "offset": 304
+                  },
+                  [
+                    "TRAN-PROC-TS"
+                  ],
+                  true
+                ],
+                [
+                  {
+                    "length": 26,
+                    "offset": 304
+                  },
+                  [
+                    "TRAN-PROC-TS"
+                  ],
+                  true
+                ]
+              ],
+              "sample_data": null,
+              "idcams_at": [
+                "app/jcl/TRANBKP.jcl:54",
+                "app/jcl/TRANFILE.jcl:49"
+              ]
+            }
+          ]
+        }
+      ],
+      "copied_by": [
+        "CBACT04C",
+        "CBEXPORT",
+        "CBIMPORT",
+        "CBTRN01C",
+        "CBTRN02C",
+        "CBTRN03C",
+        "COBIL00C",
+        "CORPT00C",
+        "COTRN00C",
+        "COTRN01C",
+        "COTRN02C"
+      ]
+    },
+    {
+      "copybook": "CVTRA06Y",
+      "source_file": "app/cpy/CVTRA06Y.cpy",
+      "in_ticket": true,
+      "header_comment_reclen": 350,
+      "records": [
+        {
+          "name": "DALYTRAN-RECORD",
+          "length": 350,
+          "datasets": [
+            {
+              "dsn": "AWS.M2.CARDDEMO.DALYTRAN.PS",
+              "organization": "sequential (no IDCAMS DEFINE)",
+              "match": null,
+              "recordsize": [],
+              "keys": [],
+              "key_fields": [],
+              "length_match": [],
+              "key_match": [],
+              "lrecl": null,
+              "aix": [],
+              "sample_data": {
+                "file": "app/data/EBCDIC/AWS.M2.CARDDEMO.DALYTRAN.PS",
+                "bytes": 105000,
+                "records": 300,
+                "whole_records": true
+              },
+              "idcams_at": []
+            }
+          ]
+        }
+      ],
+      "copied_by": [
+        "CBTRN01C",
+        "CBTRN02C"
+      ]
+    },
+    {
+      "copybook": "CVTRA07Y",
+      "source_file": "app/cpy/CVTRA07Y.cpy",
+      "in_ticket": true,
+      "header_comment_reclen": null,
+      "records": [
+        {
+          "name": "REPORT-NAME-HEADER",
+          "length": 115,
+          "datasets": [
+            {
+              "dsn": "AWS.M2.CARDDEMO.TRANREPT(+1)",
+              "organization": "sequential (no IDCAMS DEFINE)",
+              "match": true,
+              "recordsize": [],
+              "keys": [],
+              "key_fields": [],
+              "length_match": [],
+              "key_match": [],
+              "lrecl": 133,
+              "aix": [],
+              "sample_data": null,
+              "idcams_at": []
+            }
+          ]
+        },
+        {
+          "name": "TRANSACTION-DETAIL-REPORT",
+          "length": 114,
+          "datasets": [
+            {
+              "dsn": "AWS.M2.CARDDEMO.TRANREPT(+1)",
+              "organization": "sequential (no IDCAMS DEFINE)",
+              "match": true,
+              "recordsize": [],
+              "keys": [],
+              "key_fields": [],
+              "length_match": [],
+              "key_match": [],
+              "lrecl": 133,
+              "aix": [],
+              "sample_data": null,
+              "idcams_at": []
+            }
+          ]
+        },
+        {
+          "name": "TRANSACTION-HEADER-1",
+          "length": 114,
+          "datasets": [
+            {
+              "dsn": "AWS.M2.CARDDEMO.TRANREPT(+1)",
+              "organization": "sequential (no IDCAMS DEFINE)",
+              "match": true,
+              "recordsize": [],
+              "keys": [],
+              "key_fields": [],
+              "length_match": [],
+              "key_match": [],
+              "lrecl": 133,
+              "aix": [],
+              "sample_data": null,
+              "idcams_at": []
+            }
+          ]
+        },
+        {
+          "name": "TRANSACTION-HEADER-2",
+          "length": 133,
+          "datasets": [
+            {
+              "dsn": "AWS.M2.CARDDEMO.TRANREPT(+1)",
+              "organization": "sequential (no IDCAMS DEFINE)",
+              "match": true,
+              "recordsize": [],
+              "keys": [],
+              "key_fields": [],
+              "length_match": [],
+              "key_match": [],
+              "lrecl": 133,
+              "aix": [],
+              "sample_data": null,
+              "idcams_at": []
+            }
+          ]
+        },
+        {
+          "name": "REPORT-PAGE-TOTALS",
+          "length": 112,
+          "datasets": [
+            {
+              "dsn": "AWS.M2.CARDDEMO.TRANREPT(+1)",
+              "organization": "sequential (no IDCAMS DEFINE)",
+              "match": true,
+              "recordsize": [],
+              "keys": [],
+              "key_fields": [],
+              "length_match": [],
+              "key_match": [],
+              "lrecl": 133,
+              "aix": [],
+              "sample_data": null,
+              "idcams_at": []
+            }
+          ]
+        },
+        {
+          "name": "REPORT-ACCOUNT-TOTALS",
+          "length": 112,
+          "datasets": [
+            {
+              "dsn": "AWS.M2.CARDDEMO.TRANREPT(+1)",
+              "organization": "sequential (no IDCAMS DEFINE)",
+              "match": true,
+              "recordsize": [],
+              "keys": [],
+              "key_fields": [],
+              "length_match": [],
+              "key_match": [],
+              "lrecl": 133,
+              "aix": [],
+              "sample_data": null,
+              "idcams_at": []
+            }
+          ]
+        },
+        {
+          "name": "REPORT-GRAND-TOTALS",
+          "length": 112,
+          "datasets": [
+            {
+              "dsn": "AWS.M2.CARDDEMO.TRANREPT(+1)",
+              "organization": "sequential (no IDCAMS DEFINE)",
+              "match": true,
+              "recordsize": [],
+              "keys": [],
+              "key_fields": [],
+              "length_match": [],
+              "key_match": [],
+              "lrecl": 133,
+              "aix": [],
+              "sample_data": null,
+              "idcams_at": []
+            }
+          ]
+        }
+      ],
+      "copied_by": [
+        "CBTRN03C"
+      ]
+    },
+    {
+      "copybook": "CSUSR01Y",
+      "source_file": "app/cpy/CSUSR01Y.cpy",
+      "in_ticket": true,
+      "header_comment_reclen": null,
+      "records": [
+        {
+          "name": "SEC-USER-DATA",
+          "length": 80,
+          "datasets": [
+            {
+              "dsn": "AWS.M2.CARDDEMO.USRSEC.VSAM.KSDS",
+              "organization": "KSDS",
+              "match": true,
+              "recordsize": [
+                {
+                  "avg": 80,
+                  "max": 80
+                }
+              ],
+              "keys": [
+                {
+                  "length": 8,
+                  "offset": 0
+                }
+              ],
+              "key_fields": [
+                [
+                  "SEC-USR-ID"
+                ]
+              ],
+              "length_match": [
+                true
+              ],
+              "key_match": [
+                true
+              ],
+              "lrecl": null,
+              "aix": [],
+              "sample_data": {
+                "file": "app/data/EBCDIC/AWS.M2.CARDDEMO.USRSEC.PS",
+                "bytes": 800,
+                "records": 10,
+                "whole_records": true
+              },
+              "idcams_at": [
+                "app/jcl/DUSRSECJ.jcl:64"
+              ]
+            }
+          ]
+        }
+      ],
+      "copied_by": [
+        "COACTUPC",
+        "COACTVWC",
+        "COADM01C",
+        "COCRDLIC",
+        "COCRDSLC",
+        "COCRDUPC",
+        "COMEN01C",
+        "COSGN00C",
+        "COUSR00C",
+        "COUSR01C",
+        "COUSR02C",
+        "COUSR03C"
+      ]
+    },
+    {
+      "copybook": "CVEXPORT",
+      "source_file": "app/cpy/CVEXPORT.cpy",
+      "in_ticket": true,
+      "header_comment_reclen": null,
+      "records": [
+        {
+          "name": "EXPORT-RECORD",
+          "length": 500,
+          "datasets": [
+            {
+              "dsn": "AWS.M2.CARDDEMO.EXPORT.DATA",
+              "organization": "KSDS",
+              "match": false,
+              "recordsize": [
+                {
+                  "avg": 500,
+                  "max": 500
+                }
+              ],
+              "keys": [
+                {
+                  "length": 4,
+                  "offset": 28
+                }
+              ],
+              "key_fields": [
+                [
+                  "EXPORT-SEQUENCE-NUM",
+                  "EXPORT-BRANCH-ID"
+                ]
+              ],
+              "length_match": [
+                true
+              ],
+              "key_match": [
+                false
+              ],
+              "lrecl": null,
+              "aix": [],
+              "sample_data": {
+                "file": "app/data/EBCDIC/AWS.M2.CARDDEMO.EXPORT.DATA.PS",
+                "bytes": 250000,
+                "records": 500,
+                "whole_records": true
+              },
+              "idcams_at": [
+                "app/jcl/CBEXPORT.jcl:30"
+              ]
+            }
+          ]
+        }
+      ],
+      "copied_by": [
+        "CBEXPORT",
+        "CBIMPORT"
+      ]
+    },
+    {
+      "copybook": "COSTM01",
+      "source_file": "app/cpy/COSTM01.CPY",
+      "in_ticket": false,
+      "header_comment_reclen": null,
+      "records": [
+        {
+          "name": "TRNX-RECORD",
+          "length": 350,
+          "datasets": [
+            {
+              "dsn": "AWS.M2.CARDDEMO.TRXFL.VSAM.KSDS",
+              "organization": "KSDS",
+              "match": true,
+              "recordsize": [
+                {
+                  "avg": 350,
+                  "max": 350
+                }
+              ],
+              "keys": [
+                {
+                  "length": 32,
+                  "offset": 0
+                }
+              ],
+              "key_fields": [
+                [
+                  "TRNX-KEY"
+                ]
+              ],
+              "length_match": [
+                true
+              ],
+              "key_match": [
+                true
+              ],
+              "lrecl": null,
+              "aix": [],
+              "sample_data": null,
+              "idcams_at": [
+                "app/jcl/CREASTMT.JCL:29"
+              ]
+            }
+          ]
+        }
+      ],
+      "copied_by": [
+        "CBSTM03A"
+      ]
+    },
+    {
+      "copybook": "UNUSED1Y",
+      "source_file": "app/cpy/UNUSED1Y.cpy",
+      "in_ticket": false,
+      "header_comment_reclen": null,
+      "records": [
+        {
+          "name": "UNUSED-DATA",
+          "length": 80,
+          "datasets": []
+        }
+      ],
+      "copied_by": []
+    }
+  ],
+  "non_layout_copybooks": {
+    "COADM02Y": "admin menu option table (working storage)",
+    "COCOM01Y": "CICS COMMAREA (CARDDEMO-COMMAREA)",
+    "CODATECN": "date-conversion parameter area (copybook, not a program)",
+    "COMEN02Y": "main menu option table (working storage)",
+    "COTTL01Y": "screen title literals",
+    "CSDAT01Y": "current date/time working storage",
+    "CSLKPCDY": "phone area code / state / zip lookup tables with 88-levels",
+    "CSMSG01Y": "common screen messages",
+    "CSMSG02Y": "abend data work area",
+    "CSSETATY": "BMS attribute-setting PROCEDURE DIVISION snippet (COPY ... REPLACING)",
+    "CSSTRPFY": "PF-key storing PROCEDURE DIVISION snippet",
+    "CSUTLDPY": "date-validation PROCEDURE DIVISION paragraphs",
+    "CSUTLDWY": "date-validation working storage"
+  },
+  "idcams_defines": [
+    {
+      "kind": "CLUSTER",
+      "jcl": "app/jcl/ACCTFILE.jcl",
+      "line": 36,
+      "name": "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS",
+      "keys": {
+        "length": 11,
+        "offset": 0
+      },
+      "recordsize": {
+        "avg": 300,
+        "max": 300
+      },
+      "organization": "KSDS"
+    },
+    {
+      "kind": "CLUSTER",
+      "jcl": "app/jcl/CARDFILE.jcl",
+      "line": 50,
+      "name": "AWS.M2.CARDDEMO.CARDDATA.VSAM.KSDS",
+      "keys": {
+        "length": 16,
+        "offset": 0
+      },
+      "recordsize": {
+        "avg": 150,
+        "max": 150
+      },
+      "organization": "KSDS"
+    },
+    {
+      "kind": "ALTERNATEINDEX",
+      "jcl": "app/jcl/CARDFILE.jcl",
+      "line": 83,
+      "name": "AWS.M2.CARDDEMO.CARDDATA.VSAM.AIX",
+      "keys": {
+        "length": 11,
+        "offset": 16
+      },
+      "recordsize": {
+        "avg": 150,
+        "max": 150
+      },
+      "relate": "AWS.M2.CARDDEMO.CARDDATA.VSAM.KSDS",
+      "unique_key": false
+    },
+    {
+      "kind": "PATH",
+      "jcl": "app/jcl/CARDFILE.jcl",
+      "line": 100,
+      "name": "AWS.M2.CARDDEMO.CARDDATA.VSAM.AIX.PATH",
+      "pathentry": "AWS.M2.CARDDEMO.CARDDATA.VSAM.AIX"
+    },
+    {
+      "kind": "CLUSTER",
+      "jcl": "app/jcl/CBEXPORT.jcl",
+      "line": 30,
+      "name": "AWS.M2.CARDDEMO.EXPORT.DATA",
+      "keys": {
+        "length": 4,
+        "offset": 28
+      },
+      "recordsize": {
+        "avg": 500,
+        "max": 500
+      },
+      "organization": "KSDS"
+    },
+    {
+      "kind": "CLUSTER",
+      "jcl": "app/jcl/CREASTMT.JCL",
+      "line": 29,
+      "name": "AWS.M2.CARDDEMO.TRXFL.VSAM.KSDS",
+      "keys": {
+        "length": 32,
+        "offset": 0
+      },
+      "recordsize": {
+        "avg": 350,
+        "max": 350
+      },
+      "organization": "KSDS"
+    },
+    {
+      "kind": "CLUSTER",
+      "jcl": "app/jcl/CUSTFILE.jcl",
+      "line": 46,
+      "name": "AWS.M2.CARDDEMO.CUSTDATA.VSAM.KSDS",
+      "keys": {
+        "length": 9,
+        "offset": 0
+      },
+      "recordsize": {
+        "avg": 500,
+        "max": 500
+      },
+      "organization": "KSDS"
+    },
+    {
+      "kind": "GENERATIONDATAGROUP",
+      "jcl": "app/jcl/DALYREJS.jcl",
+      "line": 24,
+      "name": "AWS.M2.CARDDEMO.DALYREJS",
+      "limit": 5
+    },
+    {
+      "kind": "CLUSTER",
+      "jcl": "app/jcl/DEFCUST.jcl",
+      "line": 35,
+      "name": "AWS.CUSTDATA.CLUSTER",
+      "keys": {
+        "length": 10,
+        "offset": 0
+      },
+      "recordsize": {
+        "avg": 500,
+        "max": 500
+      },
+      "organization": "KSDS"
+    },
+    {
+      "kind": "GENERATIONDATAGROUP",
+      "jcl": "app/jcl/DEFGDGB.jcl",
+      "line": 24,
+      "name": "AWS.M2.CARDDEMO.TRANSACT.BKUP",
+      "limit": 5
+    },
+    {
+      "kind": "GENERATIONDATAGROUP",
+      "jcl": "app/jcl/DEFGDGB.jcl",
+      "line": 30,
+      "name": "AWS.M2.CARDDEMO.TRANSACT.DALY",
+      "limit": 5
+    },
+    {
+      "kind": "GENERATIONDATAGROUP",
+      "jcl": "app/jcl/DEFGDGB.jcl",
+      "line": 36,
+      "name": "AWS.M2.CARDDEMO.TRANREPT",
+      "limit": 5
+    },
+    {
+      "kind": "GENERATIONDATAGROUP",
+      "jcl": "app/jcl/DEFGDGB.jcl",
+      "line": 42,
+      "name": "AWS.M2.CARDDEMO.TCATBALF.BKUP",
+      "limit": 5
+    },
+    {
+      "kind": "GENERATIONDATAGROUP",
+      "jcl": "app/jcl/DEFGDGB.jcl",
+      "line": 48,
+      "name": "AWS.M2.CARDDEMO.SYSTRAN",
+      "limit": 5
+    },
+    {
+      "kind": "GENERATIONDATAGROUP",
+      "jcl": "app/jcl/DEFGDGB.jcl",
+      "line": 54,
+      "name": "AWS.M2.CARDDEMO.TRANSACT.COMBINED",
+      "limit": 5
+    },
+    {
+      "kind": "GENERATIONDATAGROUP",
+      "jcl": "app/jcl/DEFGDGD.jcl",
+      "line": 27,
+      "name": "AWS.M2.CARDDEMO.TRANTYPE.BKUP",
+      "limit": 5
+    },
+    {
+      "kind": "GENERATIONDATAGROUP",
+      "jcl": "app/jcl/DEFGDGD.jcl",
+      "line": 50,
+      "name": "AWS.M2.CARDDEMO.TRANCATG.PS.BKUP",
+      "limit": 5
+    },
+    {
+      "kind": "GENERATIONDATAGROUP",
+      "jcl": "app/jcl/DEFGDGD.jcl",
+      "line": 73,
+      "name": "AWS.M2.CARDDEMO.DISCGRP.BKUP",
+      "limit": 5
+    },
+    {
+      "kind": "CLUSTER",
+      "jcl": "app/jcl/DISCGRP.jcl",
+      "line": 36,
+      "name": "AWS.M2.CARDDEMO.DISCGRP.VSAM.KSDS",
+      "keys": {
+        "length": 16,
+        "offset": 0
+      },
+      "recordsize": {
+        "avg": 50,
+        "max": 50
+      },
+      "organization": "KSDS"
+    },
+    {
+      "kind": "CLUSTER",
+      "jcl": "app/jcl/DUSRSECJ.jcl",
+      "line": 64,
+      "name": "AWS.M2.CARDDEMO.USRSEC.VSAM.KSDS",
+      "keys": {
+        "length": 8,
+        "offset": 0
+      },
+      "recordsize": {
+        "avg": 80,
+        "max": 80
+      },
+      "organization": "KSDS"
+    },
+    {
+      "kind": "CLUSTER",
+      "jcl": "app/jcl/ESDSRRDS.jcl",
+      "line": 65,
+      "name": "AWS.M2.CARDDEMO.USRSEC.VSAM.ESDS",
+      "recordsize": {
+        "avg": 80,
+        "max": 80
+      },
+      "organization": "ESDS"
+    },
+    {
+      "kind": "CLUSTER",
+      "jcl": "app/jcl/ESDSRRDS.jcl",
+      "line": 99,
+      "name": "AWS.M2.CARDDEMO.USRSEC.VSAM.RRDS",
+      "recordsize": {
+        "avg": 80,
+        "max": 80
+      },
+      "organization": "RRDS"
+    },
+    {
+      "kind": "GENERATIONDATAGROUP",
+      "jcl": "app/jcl/REPTFILE.jcl",
+      "line": 25,
+      "name": "AWS.M2.CARDDEMO.TRANREPT",
+      "limit": 10
+    },
+    {
+      "kind": "CLUSTER",
+      "jcl": "app/jcl/TCATBALF.jcl",
+      "line": 36,
+      "name": "AWS.M2.CARDDEMO.TCATBALF.VSAM.KSDS",
+      "keys": {
+        "length": 17,
+        "offset": 0
+      },
+      "recordsize": {
+        "avg": 50,
+        "max": 50
+      },
+      "organization": "KSDS"
+    },
+    {
+      "kind": "CLUSTER",
+      "jcl": "app/jcl/TRANBKP.jcl",
+      "line": 54,
+      "name": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+      "keys": {
+        "length": 16,
+        "offset": 0
+      },
+      "recordsize": {
+        "avg": 350,
+        "max": 350
+      },
+      "organization": "KSDS"
+    },
+    {
+      "kind": "CLUSTER",
+      "jcl": "app/jcl/TRANCATG.jcl",
+      "line": 36,
+      "name": "AWS.M2.CARDDEMO.TRANCATG.VSAM.KSDS",
+      "keys": {
+        "length": 6,
+        "offset": 0
+      },
+      "recordsize": {
+        "avg": 60,
+        "max": 60
+      },
+      "organization": "KSDS"
+    },
+    {
+      "kind": "CLUSTER",
+      "jcl": "app/jcl/TRANFILE.jcl",
+      "line": 49,
+      "name": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+      "keys": {
+        "length": 16,
+        "offset": 0
+      },
+      "recordsize": {
+        "avg": 350,
+        "max": 350
+      },
+      "organization": "KSDS"
+    },
+    {
+      "kind": "ALTERNATEINDEX",
+      "jcl": "app/jcl/TRANFILE.jcl",
+      "line": 82,
+      "name": "AWS.M2.CARDDEMO.TRANSACT.VSAM.AIX",
+      "keys": {
+        "length": 26,
+        "offset": 304
+      },
+      "recordsize": {
+        "avg": 350,
+        "max": 350
+      },
+      "relate": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+      "unique_key": false
+    },
+    {
+      "kind": "PATH",
+      "jcl": "app/jcl/TRANFILE.jcl",
+      "line": 99,
+      "name": "AWS.M2.CARDDEMO.TRANSACT.VSAM.AIX.PATH",
+      "pathentry": "AWS.M2.CARDDEMO.TRANSACT.VSAM.AIX"
+    },
+    {
+      "kind": "ALTERNATEINDEX",
+      "jcl": "app/jcl/TRANIDX.jcl",
+      "line": 25,
+      "name": "AWS.M2.CARDDEMO.TRANSACT.VSAM.AIX",
+      "keys": {
+        "length": 26,
+        "offset": 304
+      },
+      "recordsize": {
+        "avg": 350,
+        "max": 350
+      },
+      "relate": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+      "unique_key": false
+    },
+    {
+      "kind": "PATH",
+      "jcl": "app/jcl/TRANIDX.jcl",
+      "line": 42,
+      "name": "AWS.M2.CARDDEMO.TRANSACT.VSAM.AIX.PATH",
+      "pathentry": "AWS.M2.CARDDEMO.TRANSACT.VSAM.AIX"
+    },
+    {
+      "kind": "CLUSTER",
+      "jcl": "app/jcl/TRANTYPE.jcl",
+      "line": 36,
+      "name": "AWS.M2.CARDDEMO.TRANTYPE.VSAM.KSDS",
+      "keys": {
+        "length": 2,
+        "offset": 0
+      },
+      "recordsize": {
+        "avg": 60,
+        "max": 60
+      },
+      "organization": "KSDS"
+    },
+    {
+      "kind": "CLUSTER",
+      "jcl": "app/jcl/XREFFILE.jcl",
+      "line": 39,
+      "name": "AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS",
+      "keys": {
+        "length": 16,
+        "offset": 0
+      },
+      "recordsize": {
+        "avg": 50,
+        "max": 50
+      },
+      "organization": "KSDS"
+    },
+    {
+      "kind": "ALTERNATEINDEX",
+      "jcl": "app/jcl/XREFFILE.jcl",
+      "line": 72,
+      "name": "AWS.M2.CARDDEMO.CARDXREF.VSAM.AIX",
+      "keys": {
+        "length": 11,
+        "offset": 25
+      },
+      "recordsize": {
+        "avg": 50,
+        "max": 50
+      },
+      "relate": "AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS",
+      "unique_key": false
+    },
+    {
+      "kind": "PATH",
+      "jcl": "app/jcl/XREFFILE.jcl",
+      "line": 90,
+      "name": "AWS.M2.CARDDEMO.CARDXREF.VSAM.AIX.PATH",
+      "pathentry": "AWS.M2.CARDDEMO.CARDXREF.VSAM.AIX"
+    }
+  ]
+}

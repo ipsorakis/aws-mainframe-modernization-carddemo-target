@@ -1,0 +1,342 @@
+{
+  "copybook": "CVACT02Y",
+  "source_file": "app/cpy/CVACT02Y.cpy",
+  "source_repo": "ipsorakis/aws-mainframe-modernization-carddemo",
+  "source_commit": "59cc6c2fd7ebd7ef7925cad552a01a4b8b6e4d5e",
+  "generator": "docs/inventory/copybooks/tools/gen_layouts.py",
+  "conventions": {
+    "offset": "0-based byte offset from the start of the 01 record",
+    "length": "bytes of ONE occurrence; total_length = length * occurs",
+    "occurs_path": "OCCURS ancestors (incl. self): byte offset of element [i1,i2..] = offset + sum(i_k * stride_k), i_k 0-based",
+    "in_redefines": "name of the nearest REDEFINES item enclosing this field (fields in different variants overlap)",
+    "encoding": "EBCDIC (app/data/EBCDIC); code page not stated in the source, cp037 assumed (inferred)"
+  },
+  "header_comment_reclen": 150,
+  "tab_characters": false,
+  "copied_by": [
+    {
+      "program": "CBACT02C",
+      "file": "app/cbl/CBACT02C.cbl",
+      "line": 45
+    },
+    {
+      "program": "CBEXPORT",
+      "file": "app/cbl/CBEXPORT.cbl",
+      "line": 87
+    },
+    {
+      "program": "CBIMPORT",
+      "file": "app/cbl/CBIMPORT.cbl",
+      "line": 104
+    },
+    {
+      "program": "CBTRN01C",
+      "file": "app/cbl/CBTRN01C.cbl",
+      "line": 114
+    },
+    {
+      "program": "COACTVWC",
+      "file": "app/cbl/COACTVWC.cbl",
+      "line": 248
+    },
+    {
+      "program": "COCRDLIC",
+      "file": "app/cbl/COCRDLIC.cbl",
+      "line": 290
+    },
+    {
+      "program": "COCRDSLC",
+      "file": "app/cbl/COCRDSLC.cbl",
+      "line": 234
+    },
+    {
+      "program": "COCRDUPC",
+      "file": "app/cbl/COCRDUPC.cbl",
+      "line": 353
+    }
+  ],
+  "records": [
+    {
+      "name": "CARD-RECORD",
+      "line": 4,
+      "length": 150,
+      "datasets": [
+        {
+          "dsn": "AWS.M2.CARDDEMO.CARDDATA.VSAM.KSDS",
+          "organization": "KSDS",
+          "cics_file": "CARDDAT (CARDAIX via AIX path)",
+          "sample_data": {
+            "file": "app/data/EBCDIC/AWS.M2.CARDDEMO.CARDDATA.PS",
+            "bytes": 7500,
+            "records": 50,
+            "whole_records": true
+          },
+          "evidence": [
+            {
+              "file": "app/cbl/CBACT02C.cbl",
+              "line": 93,
+              "text": "READ CARDFILE-FILE INTO CARD-RECORD"
+            },
+            {
+              "file": "app/jcl/READCARD.jcl",
+              "line": 26,
+              "text": "DSN=AWS.M2.CARDDEMO.CARDDATA.VSAM.KSDS"
+            },
+            {
+              "file": "app/csd/CARDDEMO.CSD",
+              "line": 26,
+              "text": "DSNAME(AWS.M2.CARDDEMO.CARDDATA.VSAM.KSDS)"
+            },
+            {
+              "file": "app/csd/CARDDEMO.CSD",
+              "line": 14,
+              "text": "DSNAME(AWS.M2.CARDDEMO.CARDDATA.VSAM.AIX.PATH)"
+            }
+          ],
+          "idcams": [
+            {
+              "jcl": "app/jcl/CARDFILE.jcl",
+              "line": 50,
+              "recordsize": {
+                "avg": 150,
+                "max": 150
+              },
+              "keys": {
+                "length": 16,
+                "offset": 0
+              },
+              "key_fields": [
+                "CARD-NUM"
+              ],
+              "key_overlaps": [
+                "CARD-NUM"
+              ],
+              "length_match": true,
+              "key_match": true
+            }
+          ],
+          "alternate_indexes": [
+            {
+              "name": "AWS.M2.CARDDEMO.CARDDATA.VSAM.AIX",
+              "jcl": "app/jcl/CARDFILE.jcl",
+              "line": 83,
+              "keys": {
+                "length": 11,
+                "offset": 16
+              },
+              "unique_key": false,
+              "key_fields": [
+                "CARD-ACCT-ID"
+              ],
+              "key_overlaps": [
+                "CARD-ACCT-ID"
+              ],
+              "key_match": true,
+              "paths": [
+                "AWS.M2.CARDDEMO.CARDDATA.VSAM.AIX.PATH"
+              ]
+            }
+          ],
+          "match": true,
+          "notes": [],
+          "cics_files": [
+            {
+              "file": "CARDDAT",
+              "line": 26
+            },
+            {
+              "file": "CARDAIX",
+              "line": 14
+            }
+          ]
+        }
+      ],
+      "fields": [
+        {
+          "level": 1,
+          "name": "CARD-RECORD",
+          "filler": false,
+          "parent": null,
+          "line": 4,
+          "type": "group",
+          "pic": null,
+          "usage": null,
+          "offset": 0,
+          "length": 150,
+          "total_length": 150,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "CARD-NUM",
+          "filler": false,
+          "parent": "CARD-RECORD",
+          "line": 5,
+          "type": "alphanumeric",
+          "pic": "X(16)",
+          "usage": "DISPLAY",
+          "offset": 0,
+          "length": 16,
+          "total_length": 16,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "CARD-ACCT-ID",
+          "filler": false,
+          "parent": "CARD-RECORD",
+          "line": 6,
+          "type": "numeric",
+          "pic": "9(11)",
+          "usage": "DISPLAY",
+          "offset": 16,
+          "length": 11,
+          "total_length": 11,
+          "signed": false,
+          "sign_encoding": "zoned decimal, unsigned (zone F)",
+          "digits": 11,
+          "scale": 0,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "CARD-CVV-CD",
+          "filler": false,
+          "parent": "CARD-RECORD",
+          "line": 7,
+          "type": "numeric",
+          "pic": "9(03)",
+          "usage": "DISPLAY",
+          "offset": 27,
+          "length": 3,
+          "total_length": 3,
+          "signed": false,
+          "sign_encoding": "zoned decimal, unsigned (zone F)",
+          "digits": 3,
+          "scale": 0,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "CARD-EMBOSSED-NAME",
+          "filler": false,
+          "parent": "CARD-RECORD",
+          "line": 8,
+          "type": "alphanumeric",
+          "pic": "X(50)",
+          "usage": "DISPLAY",
+          "offset": 30,
+          "length": 50,
+          "total_length": 50,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "CARD-EXPIRAION-DATE",
+          "filler": false,
+          "parent": "CARD-RECORD",
+          "line": 9,
+          "type": "alphanumeric",
+          "pic": "X(10)",
+          "usage": "DISPLAY",
+          "offset": 80,
+          "length": 10,
+          "total_length": 10,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "CARD-ACTIVE-STATUS",
+          "filler": false,
+          "parent": "CARD-RECORD",
+          "line": 10,
+          "type": "alphanumeric",
+          "pic": "X(01)",
+          "usage": "DISPLAY",
+          "offset": 90,
+          "length": 1,
+          "total_length": 1,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "filler": true,
+          "parent": "CARD-RECORD",
+          "line": 11,
+          "type": "alphanumeric",
+          "pic": "X(59)",
+          "usage": "DISPLAY",
+          "offset": 91,
+          "length": 59,
+          "total_length": 59,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        }
+      ]
+    }
+  ]
+}
