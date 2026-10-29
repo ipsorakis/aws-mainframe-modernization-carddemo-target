@@ -668,7 +668,7 @@ class Builder:
                 self.edge(prog, dd, "OPEN only (no READ/WRITE)" if opens[f] else "SELECT only (never opened)",
                           ptype, "dd", rec, detail, src_ref(line))
             for kind, lines in sorted(kinds.items()):
-                self.edge(prog, dd, kind, ptype, "dd", rec, detail, src_ref(lines[0]))
+                self.edge(prog, dd, kind, ptype, "dd", rec, detail, " ".join(src_ref(l) for l in lines))
 
     # ---------------------------------------------------------------- JCL edges
     def jcl_edges(self, path):
