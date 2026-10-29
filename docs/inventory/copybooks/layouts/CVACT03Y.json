@@ -1,0 +1,293 @@
+{
+  "copybook": "CVACT03Y",
+  "source_file": "app/cpy/CVACT03Y.cpy",
+  "source_repo": "ipsorakis/aws-mainframe-modernization-carddemo",
+  "source_commit": "59cc6c2fd7ebd7ef7925cad552a01a4b8b6e4d5e",
+  "generator": "docs/inventory/copybooks/tools/gen_layouts.py",
+  "conventions": {
+    "offset": "0-based byte offset from the start of the 01 record",
+    "length": "bytes of ONE occurrence; total_length = length * occurs",
+    "occurs_path": "OCCURS ancestors (incl. self): byte offset of element [i1,i2..] = offset + sum(i_k * stride_k), i_k 0-based",
+    "in_redefines": "name of the nearest REDEFINES item enclosing this field (fields in different variants overlap)",
+    "encoding": "EBCDIC (app/data/EBCDIC); code page not stated in the source, cp037 assumed (inferred)"
+  },
+  "header_comment_reclen": 50,
+  "tab_characters": false,
+  "copied_by": [
+    {
+      "program": "CBACT03C",
+      "file": "app/cbl/CBACT03C.cbl",
+      "line": 45
+    },
+    {
+      "program": "CBACT04C",
+      "file": "app/cbl/CBACT04C.cbl",
+      "line": 102
+    },
+    {
+      "program": "CBEXPORT",
+      "file": "app/cbl/CBEXPORT.cbl",
+      "line": 81
+    },
+    {
+      "program": "CBIMPORT",
+      "file": "app/cbl/CBIMPORT.cbl",
+      "line": 94
+    },
+    {
+      "program": "CBSTM03A",
+      "file": "app/cbl/CBSTM03A.CBL",
+      "line": 53
+    },
+    {
+      "program": "CBTRN01C",
+      "file": "app/cbl/CBTRN01C.cbl",
+      "line": 109
+    },
+    {
+      "program": "CBTRN02C",
+      "file": "app/cbl/CBTRN02C.cbl",
+      "line": 112
+    },
+    {
+      "program": "CBTRN03C",
+      "file": "app/cbl/CBTRN03C.cbl",
+      "line": 98
+    },
+    {
+      "program": "COACTUPC",
+      "file": "app/cbl/COACTUPC.cbl",
+      "line": 643
+    },
+    {
+      "program": "COACTVWC",
+      "file": "app/cbl/COACTVWC.cbl",
+      "line": 251
+    },
+    {
+      "program": "COBIL00C",
+      "file": "app/cbl/COBIL00C.cbl",
+      "line": 81
+    },
+    {
+      "program": "COTRN02C",
+      "file": "app/cbl/COTRN02C.cbl",
+      "line": 90
+    }
+  ],
+  "records": [
+    {
+      "name": "CARD-XREF-RECORD",
+      "line": 4,
+      "length": 50,
+      "datasets": [
+        {
+          "dsn": "AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS",
+          "organization": "KSDS",
+          "cics_file": "CCXREF (CXACAIX via AIX path)",
+          "sample_data": {
+            "file": "app/data/EBCDIC/AWS.M2.CARDDEMO.CARDXREF.PS",
+            "bytes": 2500,
+            "records": 50,
+            "whole_records": true
+          },
+          "evidence": [
+            {
+              "file": "app/cbl/CBACT03C.cbl",
+              "line": 93,
+              "text": "READ XREFFILE-FILE INTO CARD-XREF-RECORD"
+            },
+            {
+              "file": "app/jcl/READXREF.jcl",
+              "line": 26,
+              "text": "DSN=AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS"
+            },
+            {
+              "file": "app/csd/CARDDEMO.CSD",
+              "line": 39,
+              "text": "DSNAME(AWS.M2.CARDDEMO.CARDXREF.VSAM.KSDS)"
+            },
+            {
+              "file": "app/csd/CARDDEMO.CSD",
+              "line": 65,
+              "text": "DSNAME(AWS.M2.CARDDEMO.CARDXREF.VSAM.AIX.PATH)"
+            }
+          ],
+          "idcams": [
+            {
+              "jcl": "app/jcl/XREFFILE.jcl",
+              "line": 39,
+              "recordsize": {
+                "avg": 50,
+                "max": 50
+              },
+              "keys": {
+                "length": 16,
+                "offset": 0
+              },
+              "key_fields": [
+                "XREF-CARD-NUM"
+              ],
+              "key_overlaps": [
+                "XREF-CARD-NUM"
+              ],
+              "length_match": true,
+              "key_match": true
+            }
+          ],
+          "alternate_indexes": [
+            {
+              "name": "AWS.M2.CARDDEMO.CARDXREF.VSAM.AIX",
+              "jcl": "app/jcl/XREFFILE.jcl",
+              "line": 72,
+              "keys": {
+                "length": 11,
+                "offset": 25
+              },
+              "unique_key": false,
+              "key_fields": [
+                "XREF-ACCT-ID"
+              ],
+              "key_overlaps": [
+                "XREF-ACCT-ID"
+              ],
+              "key_match": true,
+              "paths": [
+                "AWS.M2.CARDDEMO.CARDXREF.VSAM.AIX.PATH"
+              ]
+            }
+          ],
+          "match": true,
+          "notes": [],
+          "cics_files": [
+            {
+              "file": "CCXREF",
+              "line": 39
+            },
+            {
+              "file": "CXACAIX",
+              "line": 65
+            }
+          ]
+        }
+      ],
+      "fields": [
+        {
+          "level": 1,
+          "name": "CARD-XREF-RECORD",
+          "filler": false,
+          "parent": null,
+          "line": 4,
+          "type": "group",
+          "pic": null,
+          "usage": null,
+          "offset": 0,
+          "length": 50,
+          "total_length": 50,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "XREF-CARD-NUM",
+          "filler": false,
+          "parent": "CARD-XREF-RECORD",
+          "line": 5,
+          "type": "alphanumeric",
+          "pic": "X(16)",
+          "usage": "DISPLAY",
+          "offset": 0,
+          "length": 16,
+          "total_length": 16,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "XREF-CUST-ID",
+          "filler": false,
+          "parent": "CARD-XREF-RECORD",
+          "line": 6,
+          "type": "numeric",
+          "pic": "9(09)",
+          "usage": "DISPLAY",
+          "offset": 16,
+          "length": 9,
+          "total_length": 9,
+          "signed": false,
+          "sign_encoding": "zoned decimal, unsigned (zone F)",
+          "digits": 9,
+          "scale": 0,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "XREF-ACCT-ID",
+          "filler": false,
+          "parent": "CARD-XREF-RECORD",
+          "line": 7,
+          "type": "numeric",
+          "pic": "9(11)",
+          "usage": "DISPLAY",
+          "offset": 25,
+          "length": 11,
+          "total_length": 11,
+          "signed": false,
+          "sign_encoding": "zoned decimal, unsigned (zone F)",
+          "digits": 11,
+          "scale": 0,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "filler": true,
+          "parent": "CARD-XREF-RECORD",
+          "line": 8,
+          "type": "alphanumeric",
+          "pic": "X(14)",
+          "usage": "DISPLAY",
+          "offset": 36,
+          "length": 14,
+          "total_length": 14,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,465 @@
+{
+  "copybook": "CVACT01Y",
+  "source_file": "app/cpy/CVACT01Y.cpy",
+  "source_repo": "ipsorakis/aws-mainframe-modernization-carddemo",
+  "source_commit": "59cc6c2fd7ebd7ef7925cad552a01a4b8b6e4d5e",
+  "generator": "docs/inventory/copybooks/tools/gen_layouts.py",
+  "conventions": {
+    "offset": "0-based byte offset from the start of the 01 record",
+    "length": "bytes of ONE occurrence; total_length = length * occurs",
+    "occurs_path": "OCCURS ancestors (incl. self): byte offset of element [i1,i2..] = offset + sum(i_k * stride_k), i_k 0-based",
+    "in_redefines": "name of the nearest REDEFINES item enclosing this field (fields in different variants overlap)",
+    "encoding": "EBCDIC (app/data/EBCDIC); code page not stated in the source, cp037 assumed (inferred)"
+  },
+  "header_comment_reclen": 300,
+  "tab_characters": false,
+  "copied_by": [
+    {
+      "program": "CBACT01C",
+      "file": "app/cbl/CBACT01C.cbl",
+      "line": 89
+    },
+    {
+      "program": "CBACT04C",
+      "file": "app/cbl/CBACT04C.cbl",
+      "line": 112
+    },
+    {
+      "program": "CBEXPORT",
+      "file": "app/cbl/CBEXPORT.cbl",
+      "line": 78
+    },
+    {
+      "program": "CBIMPORT",
+      "file": "app/cbl/CBIMPORT.cbl",
+      "line": 89
+    },
+    {
+      "program": "CBSTM03A",
+      "file": "app/cbl/CBSTM03A.CBL",
+      "line": 57
+    },
+    {
+      "program": "CBTRN01C",
+      "file": "app/cbl/CBTRN01C.cbl",
+      "line": 119
+    },
+    {
+      "program": "CBTRN02C",
+      "file": "app/cbl/CBTRN02C.cbl",
+      "line": 121
+    },
+    {
+      "program": "COACTUPC",
+      "file": "app/cbl/COACTUPC.cbl",
+      "line": 640
+    },
+    {
+      "program": "COACTVWC",
+      "file": "app/cbl/COACTVWC.cbl",
+      "line": 244
+    },
+    {
+      "program": "COBIL00C",
+      "file": "app/cbl/COBIL00C.cbl",
+      "line": 80
+    },
+    {
+      "program": "COTRN02C",
+      "file": "app/cbl/COTRN02C.cbl",
+      "line": 89
+    }
+  ],
+  "records": [
+    {
+      "name": "ACCOUNT-RECORD",
+      "line": 4,
+      "length": 300,
+      "datasets": [
+        {
+          "dsn": "AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS",
+          "organization": "KSDS",
+          "cics_file": "ACCTDAT",
+          "sample_data": {
+            "file": "app/data/EBCDIC/AWS.M2.CARDDEMO.ACCTDATA.PS",
+            "bytes": 15000,
+            "records": 50,
+            "whole_records": true
+          },
+          "evidence": [
+            {
+              "file": "app/cbl/CBACT01C.cbl",
+              "line": 166,
+              "text": "READ ACCTFILE-FILE INTO ACCOUNT-RECORD"
+            },
+            {
+              "file": "app/jcl/READACCT.jcl",
+              "line": 36,
+              "text": "DSN=AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS"
+            },
+            {
+              "file": "app/csd/CARDDEMO.CSD",
+              "line": 2,
+              "text": "DSNAME(AWS.M2.CARDDEMO.ACCTDATA.VSAM.KSDS)"
+            }
+          ],
+          "idcams": [
+            {
+              "jcl": "app/jcl/ACCTFILE.jcl",
+              "line": 36,
+              "recordsize": {
+                "avg": 300,
+                "max": 300
+              },
+              "keys": {
+                "length": 11,
+                "offset": 0
+              },
+              "key_fields": [
+                "ACCT-ID"
+              ],
+              "key_overlaps": [
+                "ACCT-ID"
+              ],
+              "length_match": true,
+              "key_match": true
+            }
+          ],
+          "alternate_indexes": [],
+          "match": true,
+          "notes": [],
+          "cics_files": [
+            {
+              "file": "ACCTDAT",
+              "line": 2
+            }
+          ]
+        }
+      ],
+      "fields": [
+        {
+          "level": 1,
+          "name": "ACCOUNT-RECORD",
+          "filler": false,
+          "parent": null,
+          "line": 4,
+          "type": "group",
+          "pic": null,
+          "usage": null,
+          "offset": 0,
+          "length": 300,
+          "total_length": 300,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-ID",
+          "filler": false,
+          "parent": "ACCOUNT-RECORD",
+          "line": 5,
+          "type": "numeric",
+          "pic": "9(11)",
+          "usage": "DISPLAY",
+          "offset": 0,
+          "length": 11,
+          "total_length": 11,
+          "signed": false,
+          "sign_encoding": "zoned decimal, unsigned (zone F)",
+          "digits": 11,
+          "scale": 0,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-ACTIVE-STATUS",
+          "filler": false,
+          "parent": "ACCOUNT-RECORD",
+          "line": 6,
+          "type": "alphanumeric",
+          "pic": "X(01)",
+          "usage": "DISPLAY",
+          "offset": 11,
+          "length": 1,
+          "total_length": 1,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-CURR-BAL",
+          "filler": false,
+          "parent": "ACCOUNT-RECORD",
+          "line": 7,
+          "type": "numeric",
+          "pic": "S9(10)V99",
+          "usage": "DISPLAY",
+          "offset": 12,
+          "length": 12,
+          "total_length": 12,
+          "signed": true,
+          "sign_encoding": "zoned decimal, trailing overpunch in last byte (zone C=+, D=-)",
+          "digits": 12,
+          "scale": 2,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-CREDIT-LIMIT",
+          "filler": false,
+          "parent": "ACCOUNT-RECORD",
+          "line": 8,
+          "type": "numeric",
+          "pic": "S9(10)V99",
+          "usage": "DISPLAY",
+          "offset": 24,
+          "length": 12,
+          "total_length": 12,
+          "signed": true,
+          "sign_encoding": "zoned decimal, trailing overpunch in last byte (zone C=+, D=-)",
+          "digits": 12,
+          "scale": 2,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-CASH-CREDIT-LIMIT",
+          "filler": false,
+          "parent": "ACCOUNT-RECORD",
+          "line": 9,
+          "type": "numeric",
+          "pic": "S9(10)V99",
+          "usage": "DISPLAY",
+          "offset": 36,
+          "length": 12,
+          "total_length": 12,
+          "signed": true,
+          "sign_encoding": "zoned decimal, trailing overpunch in last byte (zone C=+, D=-)",
+          "digits": 12,
+          "scale": 2,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-OPEN-DATE",
+          "filler": false,
+          "parent": "ACCOUNT-RECORD",
+          "line": 10,
+          "type": "alphanumeric",
+          "pic": "X(10)",
+          "usage": "DISPLAY",
+          "offset": 48,
+          "length": 10,
+          "total_length": 10,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-EXPIRAION-DATE",
+          "filler": false,
+          "parent": "ACCOUNT-RECORD",
+          "line": 11,
+          "type": "alphanumeric",
+          "pic": "X(10)",
+          "usage": "DISPLAY",
+          "offset": 58,
+          "length": 10,
+          "total_length": 10,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-REISSUE-DATE",
+          "filler": false,
+          "parent": "ACCOUNT-RECORD",
+          "line": 12,
+          "type": "alphanumeric",
+          "pic": "X(10)",
+          "usage": "DISPLAY",
+          "offset": 68,
+          "length": 10,
+          "total_length": 10,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-CURR-CYC-CREDIT",
+          "filler": false,
+          "parent": "ACCOUNT-RECORD",
+          "line": 13,
+          "type": "numeric",
+          "pic": "S9(10)V99",
+          "usage": "DISPLAY",
+          "offset": 78,
+          "length": 12,
+          "total_length": 12,
+          "signed": true,
+          "sign_encoding": "zoned decimal, trailing overpunch in last byte (zone C=+, D=-)",
+          "digits": 12,
+          "scale": 2,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-CURR-CYC-DEBIT",
+          "filler": false,
+          "parent": "ACCOUNT-RECORD",
+          "line": 14,
+          "type": "numeric",
+          "pic": "S9(10)V99",
+          "usage": "DISPLAY",
+          "offset": 90,
+          "length": 12,
+          "total_length": 12,
+          "signed": true,
+          "sign_encoding": "zoned decimal, trailing overpunch in last byte (zone C=+, D=-)",
+          "digits": 12,
+          "scale": 2,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-ADDR-ZIP",
+          "filler": false,
+          "parent": "ACCOUNT-RECORD",
+          "line": 15,
+          "type": "alphanumeric",
+          "pic": "X(10)",
+          "usage": "DISPLAY",
+          "offset": 102,
+          "length": 10,
+          "total_length": 10,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "ACCT-GROUP-ID",
+          "filler": false,
+          "parent": "ACCOUNT-RECORD",
+          "line": 16,
+          "type": "alphanumeric",
+          "pic": "X(10)",
+          "usage": "DISPLAY",
+          "offset": 112,
+          "length": 10,
+          "total_length": 10,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "filler": true,
+          "parent": "ACCOUNT-RECORD",
+          "line": 17,
+          "type": "alphanumeric",
+          "pic": "X(178)",
+          "usage": "DISPLAY",
+          "offset": 122,
+          "length": 178,
+          "total_length": 178,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        }
+      ]
+    }
+  ]
+}

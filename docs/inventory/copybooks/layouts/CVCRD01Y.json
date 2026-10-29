@@ -1,0 +1,479 @@
+{
+  "copybook": "CVCRD01Y",
+  "source_file": "app/cpy/CVCRD01Y.cpy",
+  "source_repo": "ipsorakis/aws-mainframe-modernization-carddemo",
+  "source_commit": "59cc6c2fd7ebd7ef7925cad552a01a4b8b6e4d5e",
+  "generator": "docs/inventory/copybooks/tools/gen_layouts.py",
+  "conventions": {
+    "offset": "0-based byte offset from the start of the 01 record",
+    "length": "bytes of ONE occurrence; total_length = length * occurs",
+    "occurs_path": "OCCURS ancestors (incl. self): byte offset of element [i1,i2..] = offset + sum(i_k * stride_k), i_k 0-based",
+    "in_redefines": "name of the nearest REDEFINES item enclosing this field (fields in different variants overlap)",
+    "encoding": "EBCDIC (app/data/EBCDIC); code page not stated in the source, cp037 assumed (inferred)"
+  },
+  "header_comment_reclen": null,
+  "tab_characters": false,
+  "copied_by": [
+    {
+      "program": "COACTUPC",
+      "file": "app/cbl/COACTUPC.cbl",
+      "line": 597
+    },
+    {
+      "program": "COACTVWC",
+      "file": "app/cbl/COACTVWC.cbl",
+      "line": 207
+    },
+    {
+      "program": "COCRDLIC",
+      "file": "app/cbl/COCRDLIC.cbl",
+      "line": 221
+    },
+    {
+      "program": "COCRDSLC",
+      "file": "app/cbl/COCRDSLC.cbl",
+      "line": 194
+    },
+    {
+      "program": "COCRDUPC",
+      "file": "app/cbl/COCRDUPC.cbl",
+      "line": 268
+    }
+  ],
+  "records": [
+    {
+      "name": "CC-WORK-AREAS",
+      "line": 1,
+      "length": 213,
+      "datasets": [],
+      "fields": [
+        {
+          "level": 1,
+          "name": "CC-WORK-AREAS",
+          "filler": false,
+          "parent": null,
+          "line": 1,
+          "type": "group",
+          "pic": null,
+          "usage": null,
+          "offset": 0,
+          "length": 213,
+          "total_length": 213,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "CC-WORK-AREA",
+          "filler": false,
+          "parent": "CC-WORK-AREAS",
+          "line": 2,
+          "type": "group",
+          "pic": null,
+          "usage": null,
+          "offset": 0,
+          "length": 213,
+          "total_length": 213,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 10,
+          "name": "CCARD-AID",
+          "filler": false,
+          "parent": "CC-WORK-AREA",
+          "line": 3,
+          "type": "alphanumeric",
+          "pic": "X(5)",
+          "usage": "DISPLAY",
+          "offset": 0,
+          "length": 5,
+          "total_length": 5,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": [
+            {
+              "name": "CCARD-AID-ENTER",
+              "values": [
+                "ENTER"
+              ]
+            },
+            {
+              "name": "CCARD-AID-CLEAR",
+              "values": [
+                "CLEAR"
+              ]
+            },
+            {
+              "name": "CCARD-AID-PA1",
+              "values": [
+                "PA1  "
+              ]
+            },
+            {
+              "name": "CCARD-AID-PA2",
+              "values": [
+                "PA2  "
+              ]
+            },
+            {
+              "name": "CCARD-AID-PFK01",
+              "values": [
+                "PFK01"
+              ]
+            },
+            {
+              "name": "CCARD-AID-PFK02",
+              "values": [
+                "PFK02"
+              ]
+            },
+            {
+              "name": "CCARD-AID-PFK03",
+              "values": [
+                "PFK03"
+              ]
+            },
+            {
+              "name": "CCARD-AID-PFK04",
+              "values": [
+                "PFK04"
+              ]
+            },
+            {
+              "name": "CCARD-AID-PFK05",
+              "values": [
+                "PFK05"
+              ]
+            },
+            {
+              "name": "CCARD-AID-PFK06",
+              "values": [
+                "PFK06"
+              ]
+            },
+            {
+              "name": "CCARD-AID-PFK07",
+              "values": [
+                "PFK07"
+              ]
+            },
+            {
+              "name": "CCARD-AID-PFK08",
+              "values": [
+                "PFK08"
+              ]
+            },
+            {
+              "name": "CCARD-AID-PFK09",
+              "values": [
+                "PFK09"
+              ]
+            },
+            {
+              "name": "CCARD-AID-PFK10",
+              "values": [
+                "PFK10"
+              ]
+            },
+            {
+              "name": "CCARD-AID-PFK11",
+              "values": [
+                "PFK11"
+              ]
+            },
+            {
+              "name": "CCARD-AID-PFK12",
+              "values": [
+                "PFK12"
+              ]
+            }
+          ]
+        },
+        {
+          "level": 10,
+          "name": "CCARD-NEXT-PROG",
+          "filler": false,
+          "parent": "CC-WORK-AREA",
+          "line": 21,
+          "type": "alphanumeric",
+          "pic": "X(8)",
+          "usage": "DISPLAY",
+          "offset": 5,
+          "length": 8,
+          "total_length": 8,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 10,
+          "name": "CCARD-NEXT-MAPSET",
+          "filler": false,
+          "parent": "CC-WORK-AREA",
+          "line": 23,
+          "type": "alphanumeric",
+          "pic": "X(7)",
+          "usage": "DISPLAY",
+          "offset": 13,
+          "length": 7,
+          "total_length": 7,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 10,
+          "name": "CCARD-NEXT-MAP",
+          "filler": false,
+          "parent": "CC-WORK-AREA",
+          "line": 24,
+          "type": "alphanumeric",
+          "pic": "X(7)",
+          "usage": "DISPLAY",
+          "offset": 20,
+          "length": 7,
+          "total_length": 7,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 10,
+          "name": "CCARD-ERROR-MSG",
+          "filler": false,
+          "parent": "CC-WORK-AREA",
+          "line": 28,
+          "type": "alphanumeric",
+          "pic": "X(75)",
+          "usage": "DISPLAY",
+          "offset": 27,
+          "length": 75,
+          "total_length": 75,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 10,
+          "name": "CCARD-RETURN-MSG",
+          "filler": false,
+          "parent": "CC-WORK-AREA",
+          "line": 29,
+          "type": "alphanumeric",
+          "pic": "X(75)",
+          "usage": "DISPLAY",
+          "offset": 102,
+          "length": 75,
+          "total_length": 75,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": [
+            {
+              "name": "CCARD-RETURN-MSG-OFF",
+              "values": [
+                "LOW-VALUES"
+              ]
+            }
+          ]
+        },
+        {
+          "level": 10,
+          "name": "CC-ACCT-ID",
+          "filler": false,
+          "parent": "CC-WORK-AREA",
+          "line": 34,
+          "type": "alphanumeric",
+          "pic": "X(11)",
+          "usage": "DISPLAY",
+          "offset": 177,
+          "length": 11,
+          "total_length": 11,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": "SPACES",
+          "level_88": []
+        },
+        {
+          "level": 10,
+          "name": "CC-ACCT-ID-N",
+          "filler": false,
+          "parent": "CC-WORK-AREA",
+          "line": 36,
+          "type": "numeric",
+          "pic": "9(11)",
+          "usage": "DISPLAY",
+          "offset": 177,
+          "length": 11,
+          "total_length": 11,
+          "signed": false,
+          "sign_encoding": "zoned decimal, unsigned (zone F)",
+          "digits": 11,
+          "scale": 0,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": "CC-ACCT-ID",
+          "in_redefines": "CC-ACCT-ID-N",
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 10,
+          "name": "CC-CARD-NUM",
+          "filler": false,
+          "parent": "CC-WORK-AREA",
+          "line": 37,
+          "type": "alphanumeric",
+          "pic": "X(16)",
+          "usage": "DISPLAY",
+          "offset": 188,
+          "length": 16,
+          "total_length": 16,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": "SPACES",
+          "level_88": []
+        },
+        {
+          "level": 10,
+          "name": "CC-CARD-NUM-N",
+          "filler": false,
+          "parent": "CC-WORK-AREA",
+          "line": 39,
+          "type": "numeric",
+          "pic": "9(16)",
+          "usage": "DISPLAY",
+          "offset": 188,
+          "length": 16,
+          "total_length": 16,
+          "signed": false,
+          "sign_encoding": "zoned decimal, unsigned (zone F)",
+          "digits": 16,
+          "scale": 0,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": "CC-CARD-NUM",
+          "in_redefines": "CC-CARD-NUM-N",
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 10,
+          "name": "CC-CUST-ID",
+          "filler": false,
+          "parent": "CC-WORK-AREA",
+          "line": 40,
+          "type": "alphanumeric",
+          "pic": "X(09)",
+          "usage": "DISPLAY",
+          "offset": 204,
+          "length": 9,
+          "total_length": 9,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": "SPACES",
+          "level_88": []
+        },
+        {
+          "level": 10,
+          "name": "CC-CUST-ID-N",
+          "filler": false,
+          "parent": "CC-WORK-AREA",
+          "line": 42,
+          "type": "numeric",
+          "pic": "9(9)",
+          "usage": "DISPLAY",
+          "offset": 204,
+          "length": 9,
+          "total_length": 9,
+          "signed": false,
+          "sign_encoding": "zoned decimal, unsigned (zone F)",
+          "digits": 9,
+          "scale": 0,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": "CC-CUST-ID",
+          "in_redefines": "CC-CUST-ID-N",
+          "value": null,
+          "level_88": []
+        }
+      ]
+    }
+  ]
+}

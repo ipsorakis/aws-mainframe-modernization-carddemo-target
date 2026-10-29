@@ -1,0 +1,546 @@
+{
+  "copybook": "CVTRA05Y",
+  "source_file": "app/cpy/CVTRA05Y.cpy",
+  "source_repo": "ipsorakis/aws-mainframe-modernization-carddemo",
+  "source_commit": "59cc6c2fd7ebd7ef7925cad552a01a4b8b6e4d5e",
+  "generator": "docs/inventory/copybooks/tools/gen_layouts.py",
+  "conventions": {
+    "offset": "0-based byte offset from the start of the 01 record",
+    "length": "bytes of ONE occurrence; total_length = length * occurs",
+    "occurs_path": "OCCURS ancestors (incl. self): byte offset of element [i1,i2..] = offset + sum(i_k * stride_k), i_k 0-based",
+    "in_redefines": "name of the nearest REDEFINES item enclosing this field (fields in different variants overlap)",
+    "encoding": "EBCDIC (app/data/EBCDIC); code page not stated in the source, cp037 assumed (inferred)"
+  },
+  "header_comment_reclen": 350,
+  "tab_characters": false,
+  "copied_by": [
+    {
+      "program": "CBACT04C",
+      "file": "app/cbl/CBACT04C.cbl",
+      "line": 117
+    },
+    {
+      "program": "CBEXPORT",
+      "file": "app/cbl/CBEXPORT.cbl",
+      "line": 84
+    },
+    {
+      "program": "CBIMPORT",
+      "file": "app/cbl/CBIMPORT.cbl",
+      "line": 99
+    },
+    {
+      "program": "CBTRN01C",
+      "file": "app/cbl/CBTRN01C.cbl",
+      "line": 124
+    },
+    {
+      "program": "CBTRN02C",
+      "file": "app/cbl/CBTRN02C.cbl",
+      "line": 107
+    },
+    {
+      "program": "CBTRN03C",
+      "file": "app/cbl/CBTRN03C.cbl",
+      "line": 93
+    },
+    {
+      "program": "COBIL00C",
+      "file": "app/cbl/COBIL00C.cbl",
+      "line": 82
+    },
+    {
+      "program": "CORPT00C",
+      "file": "app/cbl/CORPT00C.cbl",
+      "line": 146
+    },
+    {
+      "program": "COTRN00C",
+      "file": "app/cbl/COTRN00C.cbl",
+      "line": 78
+    },
+    {
+      "program": "COTRN01C",
+      "file": "app/cbl/COTRN01C.cbl",
+      "line": 69
+    },
+    {
+      "program": "COTRN02C",
+      "file": "app/cbl/COTRN02C.cbl",
+      "line": 88
+    }
+  ],
+  "records": [
+    {
+      "name": "TRAN-RECORD",
+      "line": 4,
+      "length": 350,
+      "datasets": [
+        {
+          "dsn": "AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS",
+          "organization": "KSDS",
+          "cics_file": "TRANSACT",
+          "sample_data": null,
+          "evidence": [
+            {
+              "file": "app/cbl/CBTRN02C.cbl",
+              "line": 564,
+              "text": "WRITE FD-TRANFILE-REC FROM TRAN-RECORD"
+            },
+            {
+              "file": "app/jcl/POSTTRAN.jcl",
+              "line": 29,
+              "text": "DSN=AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS"
+            },
+            {
+              "file": "app/csd/CARDDEMO.CSD",
+              "line": 77,
+              "text": "DSNAME(AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS)"
+            }
+          ],
+          "idcams": [
+            {
+              "jcl": "app/jcl/TRANBKP.jcl",
+              "line": 54,
+              "recordsize": {
+                "avg": 350,
+                "max": 350
+              },
+              "keys": {
+                "length": 16,
+                "offset": 0
+              },
+              "key_fields": [
+                "TRAN-ID"
+              ],
+              "key_overlaps": [
+                "TRAN-ID"
+              ],
+              "length_match": true,
+              "key_match": true
+            },
+            {
+              "jcl": "app/jcl/TRANFILE.jcl",
+              "line": 49,
+              "recordsize": {
+                "avg": 350,
+                "max": 350
+              },
+              "keys": {
+                "length": 16,
+                "offset": 0
+              },
+              "key_fields": [
+                "TRAN-ID"
+              ],
+              "key_overlaps": [
+                "TRAN-ID"
+              ],
+              "length_match": true,
+              "key_match": true
+            }
+          ],
+          "alternate_indexes": [
+            {
+              "name": "AWS.M2.CARDDEMO.TRANSACT.VSAM.AIX",
+              "jcl": "app/jcl/TRANFILE.jcl",
+              "line": 82,
+              "keys": {
+                "length": 26,
+                "offset": 304
+              },
+              "unique_key": false,
+              "key_fields": [
+                "TRAN-PROC-TS"
+              ],
+              "key_overlaps": [
+                "TRAN-PROC-TS"
+              ],
+              "key_match": true,
+              "paths": [
+                "AWS.M2.CARDDEMO.TRANSACT.VSAM.AIX.PATH",
+                "AWS.M2.CARDDEMO.TRANSACT.VSAM.AIX.PATH"
+              ]
+            },
+            {
+              "name": "AWS.M2.CARDDEMO.TRANSACT.VSAM.AIX",
+              "jcl": "app/jcl/TRANIDX.jcl",
+              "line": 25,
+              "keys": {
+                "length": 26,
+                "offset": 304
+              },
+              "unique_key": false,
+              "key_fields": [
+                "TRAN-PROC-TS"
+              ],
+              "key_overlaps": [
+                "TRAN-PROC-TS"
+              ],
+              "key_match": true,
+              "paths": [
+                "AWS.M2.CARDDEMO.TRANSACT.VSAM.AIX.PATH",
+                "AWS.M2.CARDDEMO.TRANSACT.VSAM.AIX.PATH"
+              ]
+            }
+          ],
+          "match": true,
+          "notes": [],
+          "cics_files": [
+            {
+              "file": "TRANSACT",
+              "line": 77
+            }
+          ]
+        }
+      ],
+      "fields": [
+        {
+          "level": 1,
+          "name": "TRAN-RECORD",
+          "filler": false,
+          "parent": null,
+          "line": 4,
+          "type": "group",
+          "pic": null,
+          "usage": null,
+          "offset": 0,
+          "length": 350,
+          "total_length": 350,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-ID",
+          "filler": false,
+          "parent": "TRAN-RECORD",
+          "line": 5,
+          "type": "alphanumeric",
+          "pic": "X(16)",
+          "usage": "DISPLAY",
+          "offset": 0,
+          "length": 16,
+          "total_length": 16,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-TYPE-CD",
+          "filler": false,
+          "parent": "TRAN-RECORD",
+          "line": 6,
+          "type": "alphanumeric",
+          "pic": "X(02)",
+          "usage": "DISPLAY",
+          "offset": 16,
+          "length": 2,
+          "total_length": 2,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-CAT-CD",
+          "filler": false,
+          "parent": "TRAN-RECORD",
+          "line": 7,
+          "type": "numeric",
+          "pic": "9(04)",
+          "usage": "DISPLAY",
+          "offset": 18,
+          "length": 4,
+          "total_length": 4,
+          "signed": false,
+          "sign_encoding": "zoned decimal, unsigned (zone F)",
+          "digits": 4,
+          "scale": 0,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-SOURCE",
+          "filler": false,
+          "parent": "TRAN-RECORD",
+          "line": 8,
+          "type": "alphanumeric",
+          "pic": "X(10)",
+          "usage": "DISPLAY",
+          "offset": 22,
+          "length": 10,
+          "total_length": 10,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-DESC",
+          "filler": false,
+          "parent": "TRAN-RECORD",
+          "line": 9,
+          "type": "alphanumeric",
+          "pic": "X(100)",
+          "usage": "DISPLAY",
+          "offset": 32,
+          "length": 100,
+          "total_length": 100,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-AMT",
+          "filler": false,
+          "parent": "TRAN-RECORD",
+          "line": 10,
+          "type": "numeric",
+          "pic": "S9(09)V99",
+          "usage": "DISPLAY",
+          "offset": 132,
+          "length": 11,
+          "total_length": 11,
+          "signed": true,
+          "sign_encoding": "zoned decimal, trailing overpunch in last byte (zone C=+, D=-)",
+          "digits": 11,
+          "scale": 2,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-MERCHANT-ID",
+          "filler": false,
+          "parent": "TRAN-RECORD",
+          "line": 11,
+          "type": "numeric",
+          "pic": "9(09)",
+          "usage": "DISPLAY",
+          "offset": 143,
+          "length": 9,
+          "total_length": 9,
+          "signed": false,
+          "sign_encoding": "zoned decimal, unsigned (zone F)",
+          "digits": 9,
+          "scale": 0,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-MERCHANT-NAME",
+          "filler": false,
+          "parent": "TRAN-RECORD",
+          "line": 12,
+          "type": "alphanumeric",
+          "pic": "X(50)",
+          "usage": "DISPLAY",
+          "offset": 152,
+          "length": 50,
+          "total_length": 50,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-MERCHANT-CITY",
+          "filler": false,
+          "parent": "TRAN-RECORD",
+          "line": 13,
+          "type": "alphanumeric",
+          "pic": "X(50)",
+          "usage": "DISPLAY",
+          "offset": 202,
+          "length": 50,
+          "total_length": 50,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-MERCHANT-ZIP",
+          "filler": false,
+          "parent": "TRAN-RECORD",
+          "line": 14,
+          "type": "alphanumeric",
+          "pic": "X(10)",
+          "usage": "DISPLAY",
+          "offset": 252,
+          "length": 10,
+          "total_length": 10,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-CARD-NUM",
+          "filler": false,
+          "parent": "TRAN-RECORD",
+          "line": 15,
+          "type": "alphanumeric",
+          "pic": "X(16)",
+          "usage": "DISPLAY",
+          "offset": 262,
+          "length": 16,
+          "total_length": 16,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-ORIG-TS",
+          "filler": false,
+          "parent": "TRAN-RECORD",
+          "line": 16,
+          "type": "alphanumeric",
+          "pic": "X(26)",
+          "usage": "DISPLAY",
+          "offset": 278,
+          "length": 26,
+          "total_length": 26,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-PROC-TS",
+          "filler": false,
+          "parent": "TRAN-RECORD",
+          "line": 17,
+          "type": "alphanumeric",
+          "pic": "X(26)",
+          "usage": "DISPLAY",
+          "offset": 304,
+          "length": 26,
+          "total_length": 26,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "filler": true,
+          "parent": "TRAN-RECORD",
+          "line": 18,
+          "type": "alphanumeric",
+          "pic": "X(20)",
+          "usage": "DISPLAY",
+          "offset": 330,
+          "length": 20,
+          "total_length": 20,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,309 @@
+{
+  "copybook": "CSUSR01Y",
+  "source_file": "app/cpy/CSUSR01Y.cpy",
+  "source_repo": "ipsorakis/aws-mainframe-modernization-carddemo",
+  "source_commit": "59cc6c2fd7ebd7ef7925cad552a01a4b8b6e4d5e",
+  "generator": "docs/inventory/copybooks/tools/gen_layouts.py",
+  "conventions": {
+    "offset": "0-based byte offset from the start of the 01 record",
+    "length": "bytes of ONE occurrence; total_length = length * occurs",
+    "occurs_path": "OCCURS ancestors (incl. self): byte offset of element [i1,i2..] = offset + sum(i_k * stride_k), i_k 0-based",
+    "in_redefines": "name of the nearest REDEFINES item enclosing this field (fields in different variants overlap)",
+    "encoding": "EBCDIC (app/data/EBCDIC); code page not stated in the source, cp037 assumed (inferred)"
+  },
+  "header_comment_reclen": null,
+  "tab_characters": false,
+  "copied_by": [
+    {
+      "program": "COACTUPC",
+      "file": "app/cbl/COACTUPC.cbl",
+      "line": 635
+    },
+    {
+      "program": "COACTVWC",
+      "file": "app/cbl/COACTVWC.cbl",
+      "line": 241
+    },
+    {
+      "program": "COADM01C",
+      "file": "app/cbl/COADM01C.cbl",
+      "line": 58
+    },
+    {
+      "program": "COCRDLIC",
+      "file": "app/cbl/COCRDLIC.cbl",
+      "line": 285
+    },
+    {
+      "program": "COCRDSLC",
+      "file": "app/cbl/COCRDSLC.cbl",
+      "line": 227
+    },
+    {
+      "program": "COCRDUPC",
+      "file": "app/cbl/COCRDUPC.cbl",
+      "line": 346
+    },
+    {
+      "program": "COMEN01C",
+      "file": "app/cbl/COMEN01C.cbl",
+      "line": 58
+    },
+    {
+      "program": "COSGN00C",
+      "file": "app/cbl/COSGN00C.cbl",
+      "line": 55
+    },
+    {
+      "program": "COUSR00C",
+      "file": "app/cbl/COUSR00C.cbl",
+      "line": 81
+    },
+    {
+      "program": "COUSR01C",
+      "file": "app/cbl/COUSR01C.cbl",
+      "line": 53
+    },
+    {
+      "program": "COUSR02C",
+      "file": "app/cbl/COUSR02C.cbl",
+      "line": 65
+    },
+    {
+      "program": "COUSR03C",
+      "file": "app/cbl/COUSR03C.cbl",
+      "line": 65
+    }
+  ],
+  "records": [
+    {
+      "name": "SEC-USER-DATA",
+      "line": 17,
+      "length": 80,
+      "datasets": [
+        {
+          "dsn": "AWS.M2.CARDDEMO.USRSEC.VSAM.KSDS",
+          "organization": "KSDS",
+          "cics_file": "USRSEC",
+          "sample_data": {
+            "file": "app/data/EBCDIC/AWS.M2.CARDDEMO.USRSEC.PS",
+            "bytes": 800,
+            "records": 10,
+            "whole_records": true
+          },
+          "evidence": [
+            {
+              "file": "app/cbl/COSGN00C.cbl",
+              "line": 213,
+              "text": "INTO (SEC-USER-DATA)"
+            },
+            {
+              "file": "app/cbl/COSGN00C.cbl",
+              "line": 39,
+              "text": "VALUE 'USRSEC '"
+            },
+            {
+              "file": "app/csd/CARDDEMO.CSD",
+              "line": 89,
+              "text": "DSNAME(AWS.M2.CARDDEMO.USRSEC.VSAM.KSDS)"
+            }
+          ],
+          "idcams": [
+            {
+              "jcl": "app/jcl/DUSRSECJ.jcl",
+              "line": 64,
+              "recordsize": {
+                "avg": 80,
+                "max": 80
+              },
+              "keys": {
+                "length": 8,
+                "offset": 0
+              },
+              "key_fields": [
+                "SEC-USR-ID"
+              ],
+              "key_overlaps": [
+                "SEC-USR-ID"
+              ],
+              "length_match": true,
+              "key_match": true
+            }
+          ],
+          "alternate_indexes": [],
+          "match": true,
+          "notes": [],
+          "cics_files": [
+            {
+              "file": "USRSEC",
+              "line": 89
+            }
+          ]
+        }
+      ],
+      "fields": [
+        {
+          "level": 1,
+          "name": "SEC-USER-DATA",
+          "filler": false,
+          "parent": null,
+          "line": 17,
+          "type": "group",
+          "pic": null,
+          "usage": null,
+          "offset": 0,
+          "length": 80,
+          "total_length": 80,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "SEC-USR-ID",
+          "filler": false,
+          "parent": "SEC-USER-DATA",
+          "line": 18,
+          "type": "alphanumeric",
+          "pic": "X(08)",
+          "usage": "DISPLAY",
+          "offset": 0,
+          "length": 8,
+          "total_length": 8,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "SEC-USR-FNAME",
+          "filler": false,
+          "parent": "SEC-USER-DATA",
+          "line": 19,
+          "type": "alphanumeric",
+          "pic": "X(20)",
+          "usage": "DISPLAY",
+          "offset": 8,
+          "length": 20,
+          "total_length": 20,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "SEC-USR-LNAME",
+          "filler": false,
+          "parent": "SEC-USER-DATA",
+          "line": 20,
+          "type": "alphanumeric",
+          "pic": "X(20)",
+          "usage": "DISPLAY",
+          "offset": 28,
+          "length": 20,
+          "total_length": 20,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "SEC-USR-PWD",
+          "filler": false,
+          "parent": "SEC-USER-DATA",
+          "line": 21,
+          "type": "alphanumeric",
+          "pic": "X(08)",
+          "usage": "DISPLAY",
+          "offset": 48,
+          "length": 8,
+          "total_length": 8,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "SEC-USR-TYPE",
+          "filler": false,
+          "parent": "SEC-USER-DATA",
+          "line": 22,
+          "type": "alphanumeric",
+          "pic": "X(01)",
+          "usage": "DISPLAY",
+          "offset": 56,
+          "length": 1,
+          "total_length": 1,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "SEC-USR-FILLER",
+          "filler": false,
+          "parent": "SEC-USER-DATA",
+          "line": 23,
+          "type": "alphanumeric",
+          "pic": "X(23)",
+          "usage": "DISPLAY",
+          "offset": 57,
+          "length": 23,
+          "total_length": 23,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        }
+      ]
+    }
+  ]
+}

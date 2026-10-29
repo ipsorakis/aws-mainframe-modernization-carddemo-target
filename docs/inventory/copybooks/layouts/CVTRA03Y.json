@@ -1,0 +1,175 @@
+{
+  "copybook": "CVTRA03Y",
+  "source_file": "app/cpy/CVTRA03Y.cpy",
+  "source_repo": "ipsorakis/aws-mainframe-modernization-carddemo",
+  "source_commit": "59cc6c2fd7ebd7ef7925cad552a01a4b8b6e4d5e",
+  "generator": "docs/inventory/copybooks/tools/gen_layouts.py",
+  "conventions": {
+    "offset": "0-based byte offset from the start of the 01 record",
+    "length": "bytes of ONE occurrence; total_length = length * occurs",
+    "occurs_path": "OCCURS ancestors (incl. self): byte offset of element [i1,i2..] = offset + sum(i_k * stride_k), i_k 0-based",
+    "in_redefines": "name of the nearest REDEFINES item enclosing this field (fields in different variants overlap)",
+    "encoding": "EBCDIC (app/data/EBCDIC); code page not stated in the source, cp037 assumed (inferred)"
+  },
+  "header_comment_reclen": 60,
+  "tab_characters": false,
+  "copied_by": [
+    {
+      "program": "CBTRN03C",
+      "file": "app/cbl/CBTRN03C.cbl",
+      "line": 103
+    }
+  ],
+  "records": [
+    {
+      "name": "TRAN-TYPE-RECORD",
+      "line": 4,
+      "length": 60,
+      "datasets": [
+        {
+          "dsn": "AWS.M2.CARDDEMO.TRANTYPE.VSAM.KSDS",
+          "organization": "KSDS",
+          "cics_file": null,
+          "sample_data": {
+            "file": "app/data/EBCDIC/AWS.M2.CARDDEMO.TRANTYPE.PS",
+            "bytes": 420,
+            "records": 7,
+            "whole_records": true
+          },
+          "evidence": [
+            {
+              "file": "app/cbl/CBTRN03C.cbl",
+              "line": 495,
+              "text": "READ TRANTYPE-FILE INTO TRAN-TYPE-RECORD"
+            },
+            {
+              "file": "app/jcl/TRANREPT.jcl",
+              "line": 70,
+              "text": "DSN=AWS.M2.CARDDEMO.TRANTYPE.VSAM.KSDS"
+            }
+          ],
+          "idcams": [
+            {
+              "jcl": "app/jcl/TRANTYPE.jcl",
+              "line": 36,
+              "recordsize": {
+                "avg": 60,
+                "max": 60
+              },
+              "keys": {
+                "length": 2,
+                "offset": 0
+              },
+              "key_fields": [
+                "TRAN-TYPE"
+              ],
+              "key_overlaps": [
+                "TRAN-TYPE"
+              ],
+              "length_match": true,
+              "key_match": true
+            }
+          ],
+          "alternate_indexes": [],
+          "match": true,
+          "notes": [],
+          "cics_files": []
+        }
+      ],
+      "fields": [
+        {
+          "level": 1,
+          "name": "TRAN-TYPE-RECORD",
+          "filler": false,
+          "parent": null,
+          "line": 4,
+          "type": "group",
+          "pic": null,
+          "usage": null,
+          "offset": 0,
+          "length": 60,
+          "total_length": 60,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-TYPE",
+          "filler": false,
+          "parent": "TRAN-TYPE-RECORD",
+          "line": 5,
+          "type": "alphanumeric",
+          "pic": "X(02)",
+          "usage": "DISPLAY",
+          "offset": 0,
+          "length": 2,
+          "total_length": 2,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "TRAN-TYPE-DESC",
+          "filler": false,
+          "parent": "TRAN-TYPE-RECORD",
+          "line": 6,
+          "type": "alphanumeric",
+          "pic": "X(50)",
+          "usage": "DISPLAY",
+          "offset": 2,
+          "length": 50,
+          "total_length": 50,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        },
+        {
+          "level": 5,
+          "name": "FILLER",
+          "filler": true,
+          "parent": "TRAN-TYPE-RECORD",
+          "line": 7,
+          "type": "alphanumeric",
+          "pic": "X(08)",
+          "usage": "DISPLAY",
+          "offset": 52,
+          "length": 8,
+          "total_length": 8,
+          "signed": false,
+          "sign_encoding": null,
+          "digits": null,
+          "scale": null,
+          "occurs": null,
+          "occurs_path": [],
+          "redefines": null,
+          "in_redefines": null,
+          "value": null,
+          "level_88": []
+        }
+      ]
+    }
+  ]
+}
