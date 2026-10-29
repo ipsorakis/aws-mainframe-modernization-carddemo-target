@@ -1,0 +1,170 @@
+path,type,name,category,purpose,lines,bytes
+app/asm/COBDATFT.asm,assembler,COBDATFT,utility,"No header description; assembler COBDATFT CSECT, CALLed by CBACT01C",84,2494
+app/asm/MVSWAIT.asm,assembler,MVSWAIT,utility,"No header description; assembler MVSWAIT START, CALLed by COBSWAIT",30,1499
+app/bms/COACTUP.bms,bms,COACTUP,online,CardDemo - Account Update Screen,512,31388
+app/bms/COACTVW.bms,bms,COACTVW,online,CardDemo - Account Viewer Screen,378,22872
+app/bms/COADM01.bms,bms,COADM01,online,CardDemo - Admin Menu Screen,167,10501
+app/bms/COBIL00.bms,bms,COBIL00,online,CardDemo - Main Menu Screen,141,8776
+app/bms/COCRDLI.bms,bms,COCRDLI,online,CardDemo - Card Listing Screen,344,21476
+app/bms/COCRDSL.bms,bms,COCRDSL,online,CardDemo - Card Selection Screen,157,9688
+app/bms/COCRDUP.bms,bms,COCRDUP,online,CardDemo - Card Update Screen,172,10656
+app/bms/COMEN01.bms,bms,COMEN01,online,CardDemo - Main Menu Screen,167,10499
+app/bms/CORPT00.bms,bms,CORPT00,online,CardDemo - Main Menu Screen,231,14631
+app/bms/COSGN00.bms,bms,COSGN00,online,CardDemo - Login Screen,210,13622
+app/bms/COTRN00.bms,bms,COTRN00,online,CardDemo - Transaction List,464,29377
+app/bms/COTRN01.bms,bms,COTRN01,online,CardDemo - Transaction View,273,17059
+app/bms/COTRN02.bms,bms,COTRN02,online,CardDemo - Transaction Add,307,19333
+app/bms/COUSR00.bms,bms,COUSR00,online,CardDemo - List Users,463,29351
+app/bms/COUSR01.bms,bms,COUSR01,online,CardDemo - Add User,164,10338
+app/bms/COUSR02.bms,bms,COUSR02,online,CardDemo - Update User,169,10635
+app/bms/COUSR03.bms,bms,COUSR03,online,CardDemo - Delete User,153,9630
+app/catlg/LISTCAT.txt,catalog,LISTCAT,n/a,IDCAMS LISTCAT LEVEL(AWS.M2.CARDDEMO) ALL output (catalog listing),3956,195621
+app/cbl/CBACT01C.cbl,program,CBACT01C,batch,READ THE ACCOUNT FILE AND WRITE INTO FILES.,430,17450
+app/cbl/CBACT02C.cbl,program,CBACT02C,batch,Read and print card data file.,178,14096
+app/cbl/CBACT03C.cbl,program,CBACT03C,batch,Read and print account cross reference data file.,178,14101
+app/cbl/CBACT04C.cbl,program,CBACT04C,batch,This is a interest calculator program.,652,52479
+app/cbl/CBCUS01C.cbl,program,CBCUS01C,batch,Read and print customer data file.,178,6914
+app/cbl/CBEXPORT.cbl,program,CBEXPORT,batch,Export Customer Data for Branch Migration Reads normalized CardDemo files and creates multi-record export file for data migration,582,24197
+app/cbl/CBIMPORT.cbl,program,CBIMPORT,batch,"Import Customer Data from Branch Migration Export Reads multi-record export file and splits it into separate normalized target files (CUSTOMER, ACCOUN CARD-XREF, TRANSACTION) with validation",487,20239
+app/cbl/CBSTM03A.CBL,program,CBSTM03A,batch,Print Account Statements from Transaction data,924,35574
+app/cbl/CBSTM03B.CBL,program,CBSTM03B,batch,Does file processing related to Transact Report,230,6983
+app/cbl/CBTRN01C.cbl,program,CBTRN01C,batch,Post the records from daily transaction file.,494,17967
+app/cbl/CBTRN02C.cbl,program,CBTRN02C,batch,Post the records from daily transaction file.,731,58890
+app/cbl/CBTRN03C.cbl,program,CBTRN03C,batch,Print the transaction detail report.,649,52239
+app/cbl/COACTUPC.cbl,program,COACTUPC,online,Accept and process ACCOUNT UPDATE,4236,182463
+app/cbl/COACTVWC.cbl,program,COACTVWC,online,Accept and process Account View request,941,74764
+app/cbl/COADM01C.cbl,program,COADM01C,online,Admin Menu for Admin users,288,22736
+app/cbl/COBIL00C.cbl,program,COBIL00C,online,Bill Payment - Pay account balance in full and a tractionsaction for the online bill payment.,572,23426
+app/cbl/COBSWAIT.cbl,program,COBSWAIT,utility,UTILITY PROGRAM TO WAIT (PARM IN CENTISECONDS),41,2020
+app/cbl/COCRDLIC.cbl,program,COCRDLIC,online,List Credit Cards a) All cards if no context passed and admin user b) Only the ones associated with ACCT in COMMAREA if user is not admin,1459,117376
+app/cbl/COCRDSLC.cbl,program,COCRDSLC,online,Accept and process credit card detail request,887,71308
+app/cbl/COCRDUPC.cbl,program,COCRDUPC,online,Accept and process credit card detail request,1560,125961
+app/cbl/COMEN01C.cbl,program,COMEN01C,online,Main Menu for the Regular users,308,12461
+app/cbl/CORPT00C.cbl,program,CORPT00C,online,Print Transaction reports by submitting batch job from online using extra partition TDQ.,649,28302
+app/cbl/COSGN00C.cbl,program,COSGN00C,online,Signon Screen for the CardDemo Application,260,10288
+app/cbl/COTRN00C.cbl,program,COTRN00C,online,List Transactions from TRANSACT file,699,29270
+app/cbl/COTRN01C.cbl,program,COTRN01C,online,View a Transaction from TRANSACT file,330,14244
+app/cbl/COTRN02C.cbl,program,COTRN02C,online,Add a new Transaction to TRANSACT file,783,33665
+app/cbl/COUSR00C.cbl,program,COUSR00C,online,List all users from USRSEC file,695,29285
+app/cbl/COUSR01C.cbl,program,COUSR01C,online,Add a new Regular/Admin user to USRSEC file,299,12571
+app/cbl/COUSR02C.cbl,program,COUSR02C,online,Update a user in USRSEC file,414,17611
+app/cbl/COUSR03C.cbl,program,COUSR03C,online,Delete a user from USRSEC file,359,15038
+app/cbl/CSUTLDTC.cbl,program,CSUTLDTC,utility,CALL TO CEEDAYS,157,11608
+app/cpy-bms/.gitkeep,placeholder,.gitkeep,n/a,Empty placeholder that keeps the folder in git,0,0
+app/cpy-bms/COACTUP.CPY,copybook,COACTUP,online,"BMS symbolic map for mapset COACTUP (01 CACTUPAI, CACTUPAO)",668,26048
+app/cpy-bms/COACTVW.CPY,copybook,COACTVW,online,"BMS symbolic map for mapset COACTVW (01 CACTVWAI, CACTVWAO)",464,18399
+app/cpy-bms/COADM01.CPY,copybook,COADM01,online,"BMS symbolic map for mapset COADM01 (01 COADM1AI, COADM1AO)",260,10506
+app/cpy-bms/COBIL00.CPY,copybook,COBIL00,online,"BMS symbolic map for mapset COBIL00 (01 COBIL0AI, COBIL0AO)",140,5886
+app/cpy-bms/COCRDLI.CPY,copybook,COCRDLI,online,"BMS symbolic map for mapset COCRDLI (01 CCRDLIAI, CCRDLIAO)",560,22016
+app/cpy-bms/COCRDSL.CPY,copybook,COCRDSL,online,"BMS symbolic map for mapset COCRDSL (01 CCRDSLAI, CCRDSLAO)",200,8172
+app/cpy-bms/COCRDUP.CPY,copybook,COCRDUP,online,"BMS symbolic map for mapset COCRDUP (01 CCRDUPAI, CCRDUPAO)",224,9074
+app/cpy-bms/COMEN01.CPY,copybook,COMEN01,online,"BMS symbolic map for mapset COMEN01 (01 COMEN1AI, COMEN1AO)",260,10506
+app/cpy-bms/CORPT00.CPY,copybook,CORPT00,online,"BMS symbolic map for mapset CORPT00 (01 CORPT0AI, CORPT0AO)",224,9012
+app/cpy-bms/COSGN00.CPY,copybook,COSGN00,online,"BMS symbolic map for mapset COSGN00 (01 COSGN0AI, COSGN0AO)",152,6302
+app/cpy-bms/COTRN00.CPY,copybook,COTRN00,online,"BMS symbolic map for mapset COTRN00 (01 COTRN0AI, COTRN0AO)",728,28494
+app/cpy-bms/COTRN01.CPY,copybook,COTRN01,online,"BMS symbolic map for mapset COTRN01 (01 COTRN1AI, COTRN1AO)",272,10784
+app/cpy-bms/COTRN02.CPY,copybook,COTRN02,online,"BMS symbolic map for mapset COTRN02 (01 COTRN2AI, COTRN2AO)",272,10802
+app/cpy-bms/COUSR00.CPY,copybook,COUSR00,online,"BMS symbolic map for mapset COUSR00 (01 COUSR0AI, COUSR0AO)",728,28472
+app/cpy-bms/COUSR01.CPY,copybook,COUSR01,online,"BMS symbolic map for mapset COUSR01 (01 COUSR1AI, COUSR1AO)",164,6756
+app/cpy-bms/COUSR02.CPY,copybook,COUSR02,online,"BMS symbolic map for mapset COUSR02 (01 COUSR2AI, COUSR2AO)",164,6766
+app/cpy-bms/COUSR03.CPY,copybook,COUSR03,online,"BMS symbolic map for mapset COUSR03 (01 COUSR3AI, COUSR3AO)",152,6316
+app/cpy/COADM02Y.cpy,copybook,COADM02Y,online,CardDemo - Admin Menu Options,62,5014
+app/cpy/COCOM01Y.cpy,copybook,COCOM01Y,online,Communication area for CardDemo application programs,47,2714
+app/cpy/CODATECN.cpy,copybook,CODATECN,batch,No header description; defines 01 CODATECN-REC,52,2723
+app/cpy/COMEN02Y.cpy,copybook,COMEN02Y,online,CardDemo - Admin Menu Options,101,5324
+app/cpy/COSTM01.CPY,copybook,COSTM01,batch,CardDemo - Transaction altered Layout for use in reporting,38,1999
+app/cpy/COTTL01Y.cpy,copybook,COTTL01Y,online,No header description; defines 01 CCDA-SCREEN-TITLE,27,1642
+app/cpy/CSDAT01Y.cpy,copybook,CSDAT01Y,online,No header description; defines 01 WS-DATE-TIME,58,3234
+app/cpy/CSLKPCDY.cpy,copybook,CSLKPCDY,online,Lookup code repository,1318,51399
+app/cpy/CSMSG01Y.cpy,copybook,CSMSG01Y,online,No header description; defines 01 CCDA-COMMON-MESSAGES,24,1533
+app/cpy/CSMSG02Y.cpy,copybook,CSMSG02Y,online,Work areas for abend routine,35,1921
+app/cpy/CSSETATY.cpy,copybook,CSSETATY,online,Set (TESTVAR1) to red if in error and * if blankACSHLIM,30,1885
+app/cpy/CSSTRPFY.cpy,copybook,CSSTRPFY,online,No header description; procedure-division code (Map AID to PFKey in COMMON Area),85,6603
+app/cpy/CSUSR01Y.cpy,copybook,CSUSR01Y,online,No header description; defines 01 SEC-USER-DATA,26,1582
+app/cpy/CSUTLDPY.cpy,copybook,CSUTLDPY,online,Procedure Division Copybook for DATE related code,375,13061
+app/cpy/CSUTLDWY.cpy,copybook,CSUTLDWY,online,Working Storage Copybook for DATE related code,89,5263
+app/cpy/CUSTREC.cpy,copybook,CUSTREC,batch,Data-structure for Customer entity (RECLN 500),26,1518
+app/cpy/CVACT01Y.cpy,copybook,CVACT01Y,online+batch,Data-structure for account entity (RECLN 300),20,1125
+app/cpy/CVACT02Y.cpy,copybook,CVACT02Y,online+batch,Data-structure for card entity (RECLN 150),14,730
+app/cpy/CVACT03Y.cpy,copybook,CVACT03Y,online+batch,Data-structure for card xref (RECLN 50),11,736
+app/cpy/CVCRD01Y.cpy,copybook,CVCRD01Y,online,No header description; defines 01 CC-WORK-AREAS,46,3436
+app/cpy/CVCUS01Y.cpy,copybook,CVCUS01Y,online+batch,Data-structure for Customer entity (RECLN 500),26,1588
+app/cpy/CVEXPORT.cpy,copybook,CVEXPORT,batch,CVEXPORT.cpy - CardDemo Multi-Record Export Layout,103,6168
+app/cpy/CVTRA01Y.cpy,copybook,CVTRA01Y,batch,Data-structure for transaction category balance (RECLN = 50),13,898
+app/cpy/CVTRA02Y.cpy,copybook,CVTRA02Y,batch,Data-structure for disclosure group (RECLN = 50),13,898
+app/cpy/CVTRA03Y.cpy,copybook,CVTRA03Y,batch,Data-structure for transaction type (RECLN = 60),10,655
+app/cpy/CVTRA04Y.cpy,copybook,CVTRA04Y,batch,Data-structure for transaction category type (RECLN = 60),12,817
+app/cpy/CVTRA05Y.cpy,copybook,CVTRA05Y,online+batch,Data-structure for TRANsaction record (RECLN = 350),21,1546
+app/cpy/CVTRA06Y.cpy,copybook,CVTRA06Y,batch,Data-structure for DALYTRANsaction record (RECLN = 350),21,1538
+app/cpy/CVTRA07Y.cpy,copybook,CVTRA07Y,batch,Reporting data structure for transaction report,73,5758
+app/cpy/UNUSED1Y.cpy,copybook,UNUSED1Y,unused,No header description; defines 01 UNUSED-DATA,10,406
+app/csd/.gitkeep,placeholder,.gitkeep,n/a,Empty placeholder that keeps the folder in git,0,0
+app/csd/CARDDEMO.CSD,csd,CARDDEMO,online,"CICS CSD resource definitions (group CARDDEMO): 8 FILE, 2 LIBRARY, 17 MAPSET, 18 PROGRAM, 1 TDQUEUE, 18 TRANSACTION",505,29940
+app/ctl/REPROCT.ctl,control,REPROCT,utility,IDCAMS control statements: REPRO INFILE(FILEIN) OUTFILE(FILEOUT),15,1061
+app/data/ASCII/acctdata.txt,data,acctdata.txt,n/a,"ASCII seed data: 50 records, record length 300 (ASCII copy of an EBCDIC dataset, inferred from name)",50,15050
+app/data/ASCII/carddata.txt,data,carddata.txt,n/a,"ASCII seed data: 50 records, record length 150 (ASCII copy of an EBCDIC dataset, inferred from name)",50,7550
+app/data/ASCII/cardxref.txt,data,cardxref.txt,n/a,"ASCII seed data: 50 records, record length 36 (ASCII copy of an EBCDIC dataset, inferred from name)",50,1850
+app/data/ASCII/custdata.txt,data,custdata.txt,n/a,"ASCII seed data: 50 records, record length 500 (ASCII copy of an EBCDIC dataset, inferred from name)",50,25050
+app/data/ASCII/dailytran.txt,data,dailytran.txt,n/a,"ASCII seed data: 300 records, record length 350 (ASCII copy of an EBCDIC dataset, inferred from name)",300,105300
+app/data/ASCII/discgrp.txt,data,discgrp.txt,n/a,"ASCII seed data: 51 records, record length 50 (ASCII copy of an EBCDIC dataset, inferred from name)",51,2601
+app/data/ASCII/tcatbal.txt,data,tcatbal.txt,n/a,"ASCII seed data: 50 records, record length 50 (ASCII copy of an EBCDIC dataset, inferred from name)",50,2599
+app/data/ASCII/trancatg.txt,data,trancatg.txt,n/a,"ASCII seed data: 18 records, record length 60 (ASCII copy of an EBCDIC dataset, inferred from name)",18,1116
+app/data/ASCII/trantype.txt,data,trantype.txt,n/a,"ASCII seed data: 7 records, record length 60 (ASCII copy of an EBCDIC dataset, inferred from name)",7,433
+app/data/EBCDIC/.gitkeep,placeholder,.gitkeep,n/a,Empty placeholder that keeps the folder in git,,0
+app/data/EBCDIC/AWS.M2.CARDDEMO.ACCDATA.PS,data,AWS.M2.CARDDEMO.ACCDATA.PS,n/a,EBCDIC seed/extract dataset AWS.M2.CARDDEMO.ACCDATA.PS (15000 bytes); not referenced by any app/jcl DD,,15000
+app/data/EBCDIC/AWS.M2.CARDDEMO.ACCTDATA.PS,data,AWS.M2.CARDDEMO.ACCTDATA.PS,n/a,EBCDIC seed/extract dataset AWS.M2.CARDDEMO.ACCTDATA.PS (15000 bytes); referenced by JCL ACCTFILE,,15000
+app/data/EBCDIC/AWS.M2.CARDDEMO.CARDDATA.PS,data,AWS.M2.CARDDEMO.CARDDATA.PS,n/a,EBCDIC seed/extract dataset AWS.M2.CARDDEMO.CARDDATA.PS (7500 bytes); referenced by JCL CARDFILE,,7500
+app/data/EBCDIC/AWS.M2.CARDDEMO.CARDXREF.PS,data,AWS.M2.CARDDEMO.CARDXREF.PS,n/a,EBCDIC seed/extract dataset AWS.M2.CARDDEMO.CARDXREF.PS (2500 bytes); referenced by JCL XREFFILE,,2500
+app/data/EBCDIC/AWS.M2.CARDDEMO.CUSTDATA.PS,data,AWS.M2.CARDDEMO.CUSTDATA.PS,n/a,EBCDIC seed/extract dataset AWS.M2.CARDDEMO.CUSTDATA.PS (25000 bytes); referenced by JCL CUSTFILE,,25000
+app/data/EBCDIC/AWS.M2.CARDDEMO.DALYTRAN.PS,data,AWS.M2.CARDDEMO.DALYTRAN.PS,n/a,EBCDIC seed/extract dataset AWS.M2.CARDDEMO.DALYTRAN.PS (105000 bytes); referenced by JCL POSTTRAN,,105000
+app/data/EBCDIC/AWS.M2.CARDDEMO.DALYTRAN.PS.INIT,data,AWS.M2.CARDDEMO.DALYTRAN.PS.INIT,n/a,EBCDIC seed/extract dataset AWS.M2.CARDDEMO.DALYTRAN.PS.INIT (350 bytes); referenced by JCL TRANFILE,,350
+app/data/EBCDIC/AWS.M2.CARDDEMO.DISCGRP.PS,data,AWS.M2.CARDDEMO.DISCGRP.PS,n/a,"EBCDIC seed/extract dataset AWS.M2.CARDDEMO.DISCGRP.PS (2550 bytes); referenced by JCL DEFGDGD, DISCGRP",,2550
+app/data/EBCDIC/AWS.M2.CARDDEMO.EXPORT.DATA.PS,data,AWS.M2.CARDDEMO.EXPORT.DATA.PS,n/a,EBCDIC seed/extract dataset AWS.M2.CARDDEMO.EXPORT.DATA.PS (250000 bytes); not referenced by any app/jcl DD,,250000
+app/data/EBCDIC/AWS.M2.CARDDEMO.TCATBALF.PS,data,AWS.M2.CARDDEMO.TCATBALF.PS,n/a,EBCDIC seed/extract dataset AWS.M2.CARDDEMO.TCATBALF.PS (2500 bytes); referenced by JCL TCATBALF,,2500
+app/data/EBCDIC/AWS.M2.CARDDEMO.TRANCATG.PS,data,AWS.M2.CARDDEMO.TRANCATG.PS,n/a,"EBCDIC seed/extract dataset AWS.M2.CARDDEMO.TRANCATG.PS (1080 bytes); referenced by JCL DEFGDGD, TRANCATG",,1080
+app/data/EBCDIC/AWS.M2.CARDDEMO.TRANTYPE.PS,data,AWS.M2.CARDDEMO.TRANTYPE.PS,n/a,"EBCDIC seed/extract dataset AWS.M2.CARDDEMO.TRANTYPE.PS (420 bytes); referenced by JCL DEFGDGD, TRANTYPE",,420
+app/data/EBCDIC/AWS.M2.CARDDEMO.USRSEC.PS,data,AWS.M2.CARDDEMO.USRSEC.PS,n/a,EBCDIC seed/extract dataset AWS.M2.CARDDEMO.USRSEC.PS (800 bytes); referenced by JCL DUSRSECJ,,800
+app/jcl/ACCTFILE.jcl,jcl,ACCTFILE,utility,Delete define Account Data,65,4880
+app/jcl/CARDFILE.jcl,jcl,CARDFILE,utility,Delete define card data,128,9947
+app/jcl/CBADMCDJ.jcl,jcl,CBADMCDJ,utility,Create Resources for Card Demo application,167,6408
+app/jcl/CBEXPORT.jcl,jcl,CBEXPORT,batch,Export Customer Data for Migration; runs CBEXPORT,72,2947
+app/jcl/CBIMPORT.jcl,jcl,CBIMPORT,batch,Import CARDDEMO Data; runs CBIMPORT,68,2755
+app/jcl/CLOSEFIL.jcl,jcl,CLOSEFIL,utility,Close files in CICS,34,2235
+app/jcl/COMBTRAN.jcl,jcl,COMBTRAN,utility,COMBINE TRANSACTIONS,52,3662
+app/jcl/CREASTMT.JCL,jcl,CREASTMT,batch,Create Statement; runs CBSTM03A,97,4457
+app/jcl/CUSTFILE.jcl,jcl,CUSTFILE,utility,DEFINE CUSTOMER FILE,84,6401
+app/jcl/DALYREJS.jcl,jcl,DALYREJS,utility,DEF GDG FOR REJS,32,2233
+app/jcl/DEFCUST.jcl,jcl,DEFCUST,utility,Define Customer Data File,47,2415
+app/jcl/DEFGDGB.jcl,jcl,DEFGDGB,utility,DEF GDG BASES,63,4744
+app/jcl/DEFGDGD.jcl,jcl,DEFGDGD,utility,DEF DB2 GDG,94,3717
+app/jcl/DISCGRP.jcl,jcl,DISCGRP,utility,DEFINE DISCLOSURE GROUP FILE,65,4904
+app/jcl/DUSRSECJ.jcl,jcl,DUSRSECJ,utility,DEF USRSEC FILE,92,4060
+app/jcl/ESDSRRDS.jcl,jcl,ESDSRRDS,utility,DEF ESDS RRDS,124,5067
+app/jcl/FTPJCL.JCL,jcl,FTPJCL,utility,FTP JCL [JOB statement name FTPJCLS differs from member name],42,1612
+app/jcl/INTCALC.jcl,jcl,INTCALC,batch,INTEREST CALCULATOR; runs CBACT04C,44,2964
+app/jcl/INTRDRJ1.JCL,jcl,INTRDRJ1,utility,THIS INTRDR JOB WILL TRIGGER ANOTHER JCL,19,757
+app/jcl/INTRDRJ2.JCL,jcl,INTRDRJ2,utility,THIS JOB IS TO CREATE PHYSICAL VSAM FILE FOR IMS DEMODB,14,615
+app/jcl/OPENFIL.jcl,jcl,OPENFIL,utility,Open files in CICS,34,2232
+app/jcl/POSTTRAN.jcl,jcl,POSTTRAN,batch,Process and load daily transaction file and create transaction; runs CBTRN02C,45,3246
+app/jcl/PRTCATBL.jcl,jcl,PRTCATBL,utility,Print Trasaction Category Balance File,66,4316
+app/jcl/READACCT.jcl,jcl,READACCT,batch,PRE DELETE STEP; runs CBACT01C,50,2407
+app/jcl/READCARD.jcl,jcl,READCARD,batch,RUN THE PROGRAM THAT READS THE CARD MASTER VSAM FILE; runs CBACT02C,31,2117
+app/jcl/READCUST.jcl,jcl,READCUST,batch,Read Customer Data file; runs CBCUS01C,30,1604
+app/jcl/READXREF.jcl,jcl,READXREF,batch,Read Cross Ref file; runs CBACT03C,31,2065
+app/jcl/REPTFILE.jcl,jcl,REPTFILE,utility,DEF GDG FOR REPORT FILE,32,2207
+app/jcl/TCATBALF.jcl,jcl,TCATBALF,utility,DEFINE TRANCAT BAL,65,4865
+app/jcl/TRANBKP.jcl,jcl,TRANBKP,utility,REPRO and Delete Transaction Master,71,5330
+app/jcl/TRANCATG.jcl,jcl,TRANCATG,utility,DEFINE TRAN CATEGORY,65,4884
+app/jcl/TRANFILE.jcl,jcl,TRANFILE,utility,DEFINE TRANSACTION MASTER,125,9721
+app/jcl/TRANIDX.jcl,jcl,TRANIDX,utility,Define AIX on Transaction Master,58,4210
+app/jcl/TRANREPT.jcl,jcl,TRANREPT,batch,TRANSACTION REPORT; runs CBTRN03C,84,6427
+app/jcl/TRANTYPE.jcl,jcl,TRANTYPE,utility,DEFINE TRAN TYPE,65,4885
+app/jcl/TXT2PDF1.JCL,jcl,TXT2PDF1,utility,CONVERT TEXT FILE TO A PDF FILE,41,1448
+app/jcl/WAITSTEP.jcl,jcl,WAITSTEP,batch,WAIT STEP; runs COBSWAIT,27,1568
+app/jcl/XREFFILE.jcl,jcl,XREFFILE,utility,Delete define cross ref file,106,8165
+app/maclib/ASMWAIT.mac,macro,ASMWAIT,utility,No header description; assembler macro ASMWAIT,20,849
+app/maclib/COCDATFT.mac,macro,COCDATFT,utility,No header description; assembler DSECT COCDATFT,22,1123
+app/proc/REPROC.prc,proc,REPROC,utility,REPRO UTILITY TO LOAD OR UNLOAD VSAM FILE,32,2233
+app/proc/TRANREPT.prc,proc,TRANREPT,batch,Unload the processed transaction file; runs CBTRN03C [PROC statement name REPROC differs from member name],82,6283
+app/scheduler/CardDemo.ca7,scheduler,CardDemo.ca7,batch,CA-7 job listing (LJOB LIST=ALL): 30 job entries with triggers,570,29514
+app/scheduler/CardDemo.controlm,scheduler,CardDemo.controlm,batch,"Control-M job definitions: 5 folders, 15 job entries",92,20100
