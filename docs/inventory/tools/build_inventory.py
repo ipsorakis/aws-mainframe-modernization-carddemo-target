@@ -73,7 +73,7 @@ def list_files(src):
     try:
         out = subprocess.run(["git", "-C", src, "ls-files", "-z", "--"] + folders,
                              check=True, capture_output=True).stdout.decode()
-        files = [p for p in out.split("\0") if p]
+        files = [p for p in out.split("\0") if p and os.path.isfile(os.path.join(src, p))]
     except (OSError, subprocess.CalledProcessError):
         files = []
         for folder in folders:
